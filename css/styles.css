@@ -1,0 +1,15 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.nav {
+  background-color: white !important;
+}
+
+.sign-button {
+  color: #2a67f4;
+}
+
+.nav-item > a {
+  font-weight: bold;
+}
