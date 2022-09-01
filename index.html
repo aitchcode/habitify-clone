@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="img/habitify_favicon.png" />
+    <link rel="icon" href="assets/img/habitify_favicon.png" />
     <title>Habitify - The Minimal, Data-Driven Habit Tracker</title>
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Required meta tags -->
@@ -28,9 +28,9 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white py-1">
-      <div class="container-md">
+      <div class="container">
         <a class="navbar-brand" href="#">
-          <img style="max-width: 150px" src="img/habitify-logo.png" />
+          <img style="max-width: 150px" src="assets/img/habitify-logo.png" />
         </a>
         <button
           class="navbar-toggler collapsed"
@@ -69,6 +69,79 @@
         yourself by mastering your habits.
       </p>
       <span class="btn btn-primary get-started-btn px-4">Get Started</span>
+    </div>
+    <!-- How it works -->
+    <div class="d-flex flex-column align-items-center how-it-works my-5">
+      <h2>How It Works?</h2>
+      <p class="p2">
+        Habits building in its essential steps: choose a habit, actually
+        remember to do it, and track your development.
+      </p>
+      <div class="container row">
+        <div class="col-md-4 d-flex flex-column how-it-works-item pr-3">
+          <img src="assets/img/set-up-habits.png" class="my-3" />
+          <h3>1. Set up your Habits</h3>
+          <p class="p3 my-1">
+            String together a list of habits to create your daily routines and
+            start your journey.
+          </p>
+        </div>
+        <div class="col-md-4 d-flex flex-column how-it-works-item px-3">
+          <img src="assets/img/get-cue.png" class="my-3" />
+          <h3>2. Get the Cue</h3>
+          <p class="p3 my-1">
+            Stay accountable and never forget your habits with multiple
+            reminders.
+          </p>
+        </div>
+        <div class="col-md-4 d-flex flex-column how-it-works-item pl-3">
+          <img src="assets/img/see-progress.png" class="my-3" />
+          <h3>3. See your Progress</h3>
+          <p class="p3 my-1">
+            View your habit development through the weeks and months with
+            detailed reports.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Habitify in action -->
+    <div
+      class="d-flex flex-column align-items-center how-it-works video-content text-white"
+    >
+      <h2>Habitify in Action</h2>
+      <p class="p2">See how Habitify can enhance your habit-building process</p>
+      <div class="container">
+        <video
+          class="video-js px-2 mt-3"
+          controls=""
+          preload="auto"
+          width="100%"
+          height="auto"
+          data-setup="{}"
+          poster="assets/img/video-poster.jpg"
+        >
+          <source
+            src="assets/vid/habitify-landing-page-video.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    </div>
+    <!-- Harness the power of data -->
+    <div
+      class="d-flex flex-column how-it-works harness-power-content align-items-center pt-5"
+    >
+      <h2>Harness the Power of Data</h2>
+      <p class="p2">
+        Get the tactical information you need to level up your habits.
+      </p>
+      <span class="btn btn-primary get-started-btn px-4">Get Started</span>
+      <div class="container">
+        <img
+          src="assets/img/data-visualization-artwork.jpg"
+          class="my-3 w-100"
+        />
+      </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

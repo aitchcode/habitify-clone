@@ -3,6 +3,16 @@
   padding: 0 !important;
 }
 
+.navbar .container {
+  max-width: 1300px;
+}
+
+@media screen and (min-width: 1440px) {
+  .navbar .container {
+    max-width: 1;
+  }
+}
+
 .navbar-toggler {
   padding: 20px !important;
   border: 0 !important;
@@ -32,7 +42,7 @@
 }
 
 .hero-content {
-  background: url(../img/hero-image.jpg);
+  background: url(../assets/img/hero-image.jpg);
   background-size: cover;
   background-position: 70% 50%;
   height: 68vh;
@@ -41,18 +51,30 @@
   text-align: center;
 }
 
+@media screen and (min-width: 1920px) {
+  .hero-content {
+    height: 820px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero-content {
+    height: 740px;
+  }
+}
+
 h1 {
   font-weight: 900 !important;
   font-size: 40px !important;
   max-width: 520px;
-  margin-top: 60px !important;
+  margin-top: 6rem !important;
 }
 
 p {
   max-width: 600px;
   font-size: 22px !important;
   color: #707070;
-  margin-top: 10px !important;
+  margin-top: 20px !important;
   font-weight: 500 !important;
 }
 
@@ -61,11 +83,51 @@ p {
   font-weight: 500 !important;
   background-color: #2a67f4 !important;
   padding: 0.8rem !important;
+  margin-top: 15px !important;
+}
+
+.how-it-works {
+  text-align: center;
+}
+
+.how-it-works-item img {
+  width: 220px;
+}
+
+h3 {
+  text-align: start;
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  max-width: 280px !important;
+}
+
+.p3 {
+  text-align: start;
+  font-size: 16px !important;
+  max-width: 280px !important;
+}
+
+h2 {
+  font-weight: 700 !important;
+  font-size: 30px !important;
+}
+
+.p2 {
+  max-width: 600px;
+  font-size: 20px !important;
+  color: #707070;
+  margin-top: 10px !important;
+  font-weight: 500 !important;
 }
 
 @media screen and (max-width: 991px) {
   .hero-content {
     background-position: 60% 50%;
+    height: 550px;
+  }
+
+  .how-it-works-item img {
+    width: 200px;
   }
 
   h1 {
@@ -81,6 +143,19 @@ p {
   .get-started-btn {
     font-size: 16px !important;
     padding: 0.7rem !important;
+  }
+
+  h2 {
+    font-size: 27px !important;
+  }
+
+  .p2 {
+    font-size: 18px !important;
+    max-width: 520px;
+  }
+
+  .p3 {
+    font-size: 14px !important;
   }
 }
 
@@ -103,14 +178,45 @@ p {
     font-size: 14px !important;
     padding: 0.6rem !important;
   }
+
+  h2 {
+    font-size: 24px !important;
+  }
+
+  .p2 {
+    font-size: 15px !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .navbar-nav {
     box-shadow: 0px 5px 6px -6px rgba(0, 0, 0, 0.75);
   }
+
+  .how-it-works-item {
+    align-items: center;
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .p3 {
+    text-align: center;
+  }
 }
 
 .navbar-brand {
   margin-left: 20px !important;
+}
+
+.video-content {
+  background-color: #2b2b2b;
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+}
+
+.harness-power-content {
+  background: #f3f6fd;
 }
