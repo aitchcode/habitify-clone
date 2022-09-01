@@ -31,10 +31,78 @@
   color: black;
 }
 
-.containerx {
-  background: url(../img/habitify-logo.png);
+.hero-content {
+  background: url(../img/hero-image.jpg);
   background-size: cover;
-  height: 600px;
+  background-position: 70% 50%;
+  height: 68vh;
+  min-height: 550px;
+  margin-top: 72px;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 900 !important;
+  font-size: 40px !important;
+  max-width: 520px;
+  margin-top: 60px !important;
+}
+
+p {
+  max-width: 600px;
+  font-size: 22px !important;
+  color: #707070;
+  margin-top: 10px !important;
+  font-weight: 500 !important;
+}
+
+.get-started-btn {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  background-color: #2a67f4 !important;
+  padding: 0.8rem !important;
+}
+
+@media screen and (max-width: 991px) {
+  .hero-content {
+    background-position: 60% 50%;
+  }
+
+  h1 {
+    font-size: 36px !important;
+    max-width: 400px;
+  }
+
+  p {
+    font-size: 20px !important;
+    max-width: 420px;
+  }
+
+  .get-started-btn {
+    font-size: 16px !important;
+    padding: 0.7rem !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero-content {
+    background-position: 60% 50%;
+  }
+
+  h1 {
+    font-size: 28px !important;
+    max-width: 300px;
+  }
+
+  p {
+    font-size: 17px !important;
+    max-width: 410px;
+  }
+
+  .get-started-btn {
+    font-size: 14px !important;
+    padding: 0.6rem !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -45,9 +113,4 @@
 
 .navbar-brand {
   margin-left: 20px !important;
-}
-
-.navbar {
-  max-width: 1300px;
-  margin: 0 auto;
 }
