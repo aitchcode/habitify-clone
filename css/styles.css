@@ -1,5 +1,6 @@
 * {
   font-family: Inter, sans-serif;
+  padding: 0 !important;
 }
 
 .navbar-toggler {
@@ -9,8 +10,8 @@
 }
 
 .nav-item a {
-  padding: 20px;
-  font-weight: bold;
+  padding: 20px !important;
+  font-weight: 500;
   color: #707070 !important;
 }
 
@@ -26,12 +27,27 @@
   color: #2a67f4 !important;
 }
 
-@media screen and (min-width: 768px) {
-  .nav-item a {
-    padding: 20px !important;
+.fa-bars {
+  color: black;
+}
+
+.containerx {
+  background: url(../img/habitify-logo.png);
+  background-size: cover;
+  height: 600px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-nav {
+    box-shadow: 0px 5px 6px -6px rgba(0, 0, 0, 0.75);
   }
 }
 
-.fa-bars {
-  color: black;
+.navbar-brand {
+  margin-left: 20px !important;
+}
+
+.navbar {
+  max-width: 1300px;
+  margin: 0 auto;
 }
