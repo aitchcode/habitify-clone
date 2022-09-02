@@ -151,7 +151,7 @@ h2 {
 
   .p2 {
     font-size: 18px !important;
-    max-width: 520px;
+    max-width: 565px;
   }
 
   .p3 {
@@ -185,6 +185,18 @@ h2 {
 
   .p2 {
     font-size: 15px !important;
+  }
+
+  .carousel-item img {
+    width: 90% !important;
+  }
+
+  .carousel-control-next {
+    display: none !important;
+  }
+
+  .carousel-control-prev {
+    display: none !important;
   }
 }
 
@@ -222,10 +234,8 @@ h2 {
 }
 
 .golden-keys-content {
-  margin-top: 80px;
-  margin-bottom: 80px;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
+  margin-top: 70px;
+  margin-bottom: 100px;
 }
 
 #v-pills-tab {
@@ -268,16 +278,16 @@ h2 {
   border-radius: 10px;
 }
 
-#golden-keys-section-1 {
-  display: none;
+.carousel-content {
+  background: #f7f7f7;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-#golden-keys-section-2 {
-  display: none !important;
-}
-
-@media screen and (min-width: 992px) {
-  #golden-keys-section-1 {
-    display: flex;
-  }
+.carousel-indicators li {
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 100%;
+  background-color: black !important;
 }

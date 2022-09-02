@@ -115,7 +115,7 @@
       <p class="p2">See how Habitify can enhance your habit-building process</p>
       <div class="container">
         <video
-          class="video-js"
+          class="video-js px-4"
           controls=""
           preload="auto"
           width="100%"
@@ -145,7 +145,7 @@
     <!-- The golden keys -->
     <div class="container golden-keys-content">
       <!-- Golden keys section on large screen -->
-      <div class="row" id="golden-keys-section-1">
+      <div class="row d-none d-lg-flex px-4">
         <div
           class="nav flex-column nav-pills col-md-6 w-25"
           id="v-pills-tab"
@@ -337,14 +337,84 @@
         </div>
       </div>
       <!-- Golden keys section on medium screen -->
-      <div
-        class="d-flex flex-column align-items-center how-it-works"
-        id="golden-keys-section-2"
-      >
-        <h2>Habitify in Action</h2>
-        <p class="p2">
-          See how Habitify can enhance your habit-building process
+      <div class="d-flex flex-column align-items-center how-it-works d-lg-none">
+        <h2>The Golden Keys</h2>
+        <p class="p2 px-1">
+          Habitify lets you set time-specific reminders or multiple reminders
+          each day for habits.
         </p>
+        <div class="row mx-4 d-none d-md-flex">
+          <div class="col-6 p-2">
+            <img src="assets/img/streaks.png" class="w-100" />
+          </div>
+          <div class="col-6 p-2">
+            <img src="assets/img/streaks.png" class="w-100" />
+          </div>
+        </div>
+        <div class="row mx-4 d-none d-md-flex">
+          <div class="col-6 p-2">
+            <img src="assets/img/streaks.png" class="w-100" />
+          </div>
+          <div class="col-6 p-2">
+            <img src="assets/img/streaks.png" class="w-100" />
+          </div>
+        </div>
+        <div class="carousel-content d-md-none">
+          <div
+            id="myCarousel"
+            class="carousel slide w-100"
+            data-ride="carousel"
+          >
+            <ol class="carousel-indicators mb-0">
+              <li
+                data-target="#myCarousel"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  class="d-block w-75 ml-auto mr-auto"
+                  src="assets/img/calendar.jpeg"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-75 ml-auto mr-auto"
+                  src="assets/img/streaks.png"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-75 ml-auto mr-auto"
+                  src="assets/img/reminder.jpg"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-75 ml-auto mr-auto"
+                  src="assets/img/completion-rate.jpg"
+                />
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#myCarousel"
+              role="button"
+              data-slide="prev"
+            ></a>
+            <a
+              class="carousel-control-next"
+              href="#myCarousel"
+              role="button"
+              data-slide="next"
+            ></a>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Optional JavaScript -->
