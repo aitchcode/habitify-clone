@@ -220,3 +220,64 @@ h2 {
 .harness-power-content {
   background: #f3f6fd;
 }
+
+.golden-keys-content {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+#v-pills-tab {
+  padding-right: 60px !important;
+}
+
+.golden-keys-content div h2 {
+  width: 80%;
+}
+
+.golden-keys-content div a {
+  padding: 15px !important;
+  color: #707070;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.fa {
+  font-size: 20px !important;
+  width: 30px;
+}
+
+@media screen and (min-width: 1440px) {
+  .golden-keys-content div h2 {
+    width: 60%;
+  }
+
+  .golden-keys-content div p {
+    width: 85%;
+  }
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #e9f0fe !important;
+  color: #2a67f4 !important;
+}
+
+.tab-pane img {
+  border-radius: 10px;
+}
+
+#golden-keys-section-1 {
+  display: none;
+}
+
+#golden-keys-section-2 {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  #golden-keys-section-1 {
+    display: flex;
+  }
+}
