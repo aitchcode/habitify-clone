@@ -115,19 +115,15 @@
       <p class="p2">See how Habitify can enhance your habit-building process</p>
       <div class="container">
         <video
-          class="video-js px-2 mt-3"
+          class="video-js"
           controls=""
           preload="auto"
           width="100%"
           height="auto"
           data-setup="{}"
           poster="assets/img/video-poster.jpg"
-        >
-          <source
-            src="assets/vid/habitify-landing-page-video.mp4"
-            type="video/mp4"
-          />
-        </video>
+          src="assets/vid/habitify-landing-page-video.mp4"
+        ></video>
       </div>
     </div>
     <!-- Harness the power of data -->
@@ -241,10 +237,16 @@
             role="tabpanel"
             aria-labelledby="v-pills-never-forget-tab"
           >
-            <img
+            <video
+              autoplay=""
+              loop=""
               class="w-100"
-              src="assets/img/golden-keys-simple-background.jpg"
-            />
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              src="assets/vid/never-forget.mp4"
+            ></video>
           </div>
           <div
             class="tab-pane fade"
@@ -252,7 +254,16 @@
             role="tabpanel"
             aria-labelledby="v-pills-maintain-streak-tab"
           >
-            <img class="w-100" src="assets/img/streaks.jpg" />
+            <video
+              autoplay=""
+              class="w-100"
+              loop=""
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              src="assets/vid/streaks.mp4"
+            ></video>
           </div>
           <div
             class="tab-pane fade"
@@ -260,7 +271,16 @@
             role="tabpanel"
             aria-labelledby="v-pills-habit-calendar-tab"
           >
-            <img class="w-100" src="assets/img/calendar.jpg" />
+            <video
+              autoplay=""
+              loop=""
+              muted=""
+              class="w-100"
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              src="assets/vid/calendar.mp4"
+            ></video>
           </div>
           <div
             class="tab-pane fade show active"
@@ -268,7 +288,16 @@
             role="tabpanel"
             aria-labelledby="v-pills-completion-rate-tab"
           >
-            <img class="w-100" src="assets/img/completion-rate.jpg" />
+            <video
+              autoplay=""
+              loop=""
+              class="w-100"
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              src="assets/vid/completion-rate.mp4"
+            ></video>
           </div>
           <div
             class="tab-pane fade"
@@ -276,10 +305,17 @@
             role="tabpanel"
             aria-labelledby="v-pills-document-notes-tab"
           >
-            <img
+            <video
+              id="826e9c36-d7b5-4ce4-c5b5-0723c0391f80-video"
+              autoplay=""
+              loop=""
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
               class="w-100"
-              src="assets/img/golden-keys-simple-background.jpg"
-            />
+              src="assets/vid/document-notes.mp4"
+            ></video>
           </div>
           <div
             class="tab-pane fade"
@@ -287,11 +323,29 @@
             role="tabpanel"
             aria-labelledby="v-pills-time-goals-tab"
           >
-            <img class="w-100" src="assets/img/time-goals.jpg" />
+            <video
+              autoplay=""
+              loop=""
+              class="w-100"
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              src="assets/vid/time-goals.mp4"
+            ></video>
           </div>
         </div>
       </div>
       <!-- Golden keys section on medium screen -->
+      <div
+        class="d-flex flex-column align-items-center how-it-works"
+        id="golden-keys-section-2"
+      >
+        <h2>Habitify in Action</h2>
+        <p class="p2">
+          See how Habitify can enhance your habit-building process
+        </p>
+      </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
