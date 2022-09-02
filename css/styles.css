@@ -51,15 +51,15 @@
   text-align: center;
 }
 
-@media screen and (min-width: 1920px) {
-  .hero-content {
-    height: 820px;
-  }
-}
-
 @media screen and (min-width: 1440px) {
   .hero-content {
     height: 740px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .hero-content {
+    height: 820px;
   }
 }
 
