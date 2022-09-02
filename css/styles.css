@@ -51,14 +51,31 @@
   text-align: center;
 }
 
+.pre-footer-content {
+  background: url(../assets/img/pre-footer-image.jpg);
+  background-size: cover;
+  background-position: 50% 0%;
+  height: 600px;
+  text-align: center;
+  padding-top: 60px !important;
+}
+
 @media screen and (min-width: 1440px) {
   .hero-content {
     height: 740px;
+  }
+
+  .pre-footer-content {
+    height: 650px;
   }
 }
 
 @media screen and (min-width: 1920px) {
   .hero-content {
+    height: 820px;
+  }
+
+  .pre-footer-content {
     height: 820px;
   }
 }
