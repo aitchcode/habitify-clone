@@ -100,6 +100,11 @@ p {
   background-color: #2a67f4 !important;
   padding: 0.8rem !important;
   margin-top: 10px !important;
+  border-radius: 5px !important;
+}
+
+.get-started-btn:hover {
+  opacity: 60%;
 }
 
 .how-it-works {
@@ -204,7 +209,49 @@ h2 {
   color: #2a67f4;
 }
 
+.multi-platform-content {
+  margin-top: 70px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.multi-plat-section {
+  background: #f7f7f7;
+  border-radius: 5px;
+  height: 180px;
+  cursor: pointer;
+}
+
+.multi-plat-section:hover {
+  background: #2a67f4;
+  color: white;
+}
+
+.multi-plat-section:hover p {
+  color: lightgray;
+}
+
+.multi-plat-section:hover .multi-plat-img {
+  filter: invert(100%);
+}
+
+.multi-plat-img {
+  width: 50px;
+}
+
 @media screen and (max-width: 479px) {
+  .multi-plat-img {
+    width: 36px;
+  }
+
+  .multi-plat-section {
+    height: 170px;
+  }
+
+  .multi-plat-section p {
+    font-size: 12px !important;
+  }
+
   .hero-content {
     background-position: 53% 50%;
   }
@@ -349,10 +396,6 @@ h2 {
   background-color: black !important;
 }
 
-.review-section {
-  background: #f7f7f7;
-}
-
 .social-logo {
   width: 40px;
   opacity: 50%;
@@ -361,4 +404,8 @@ h2 {
 
 .social-logo:hover {
   opacity: 100%;
+}
+
+.review-section {
+  background: #f7f7f7;
 }
