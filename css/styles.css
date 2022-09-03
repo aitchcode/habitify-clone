@@ -352,3 +352,13 @@ h2 {
 .review-section {
   background: #f7f7f7;
 }
+
+.social-logo {
+  width: 40px;
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.social-logo:hover {
+  opacity: 100%;
+}
