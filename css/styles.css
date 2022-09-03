@@ -1,6 +1,5 @@
 * {
   font-family: Inter, sans-serif;
-  padding: 0 !important;
 }
 
 .navbar .container {
@@ -55,7 +54,7 @@
   background: url(../assets/img/pre-footer-image.jpg);
   background-size: cover;
   background-position: 50% 0%;
-  height: 600px;
+  height: 620px;
   text-align: center;
   padding-top: 60px !important;
 }
@@ -66,7 +65,7 @@
   }
 
   .pre-footer-content {
-    height: 650px;
+    height: 660px;
   }
 }
 
@@ -76,7 +75,7 @@
   }
 
   .pre-footer-content {
-    height: 820px;
+    height: 880px;
   }
 }
 
@@ -176,6 +175,35 @@ h2 {
   }
 }
 
+.footer-content {
+  background: black;
+}
+
+.footer-container div h2 {
+  font-size: 24px !important;
+}
+
+.footer-container div p {
+  max-width: 350px;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  margin-bottom: 10px;
+}
+
+.footer-container div .footer-section-heading {
+  font-size: 14px !important;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: #2a67f4;
+}
+
 @media screen and (max-width: 479px) {
   .hero-content {
     background-position: 53% 50%;
@@ -214,6 +242,18 @@ h2 {
 
   .carousel-control-prev {
     display: none !important;
+  }
+
+  .pre-footer-content {
+    height: 450px;
+  }
+
+  .footer-container div p {
+    font-size: 15px !important;
+  }
+
+  .footer-container div .footer-link {
+    font-weight: 500 !important;
   }
 }
 
