@@ -433,7 +433,7 @@ h2 {
 }
 
 .award-section {
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .read-stories {
@@ -442,11 +442,7 @@ h2 {
   color: #2a67f4;
 }
 
-.five-star-section {
-  max-width: 800px;
-}
-
-.five-star-section div i {
+.five-star-text {
   font-size: 14px;
   color: #707070;
 }
