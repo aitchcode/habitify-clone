@@ -141,6 +141,10 @@ h2 {
   font-weight: 500 !important;
 }
 
+.heart-image {
+  margin-top: -35px;
+}
+
 @media screen and (max-width: 991px) {
   .hero-content {
     background-position: 50% 50%;
@@ -177,6 +181,15 @@ h2 {
 
   .p3 {
     font-size: 14px !important;
+  }
+
+  .heart-image {
+    margin-top: -30px;
+    height: 60px;
+  }
+
+  .cloud-image {
+    width: 60px;
   }
 }
 
@@ -302,6 +315,15 @@ h2 {
   .footer-container div .footer-link {
     font-weight: 500 !important;
   }
+
+  .heart-image {
+    margin-top: -25px;
+    height: 50px;
+  }
+
+  .cloud-image {
+    width: 50px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -343,7 +365,7 @@ h2 {
 }
 
 #v-pills-tab {
-  padding-right: 60px !important;
+  padding-right: 45px !important;
 }
 
 .golden-keys-content div h2 {
@@ -408,4 +430,23 @@ h2 {
 
 .review-section {
   background: #f7f7f7;
+}
+
+.award-section {
+  max-width: 800px;
+}
+
+.read-stories {
+  font-weight: 600;
+  cursor: pointer;
+  color: #2a67f4;
+}
+
+.five-star-section {
+  max-width: 800px;
+}
+
+.five-star-section div i {
+  font-size: 14px;
+  color: #707070;
 }
