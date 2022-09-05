@@ -12,7 +12,7 @@ window.onload = function () {
   });
   google.accounts.id.renderButton(
       document.getElementById("google-button"),{});
-  google.accounts.id.prompt(); 
+  google.accounts.id.prompt();
 }
 
 function decodeJwtResponse(token) {
