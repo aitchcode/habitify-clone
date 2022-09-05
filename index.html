@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="img/habitify_favicon.png" />
+    <link rel="icon" href="assets/img/habitify_favicon.png" />
     <title>Habitify - The Minimal, Data-Driven Habit Tracker</title>
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Required meta tags -->
@@ -23,42 +23,668 @@
       href="https://fonts.googleapis.com/css?family=Inter"
     />
     <!-- Font awesome -->
-    <script src="https://use.fontawesome.com/38ee4ed98e.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white py-1">
-      <a class="navbar-brand" href="#">
-        <img style="max-width: 150px" src="img/habitify-logo.png" />
-      </a>
-      <button
-        class="navbar-toggler collapsed"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarCollapse"
-        aria-controls="navbarCollapse"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="fa fa-bars"></span>
-      </button>
-      <div class="navbar-collapse collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link sign-btn" href="#">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link sign-btn" href="#">Sign In</a>
-          </li>
-        </ul>
+    <nav
+      class="navbar navbar-expand-md navbar-light fixed-top bg-white py-1 px-0"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img style="max-width: 150px" src="assets/img/habitify-logo.png" />
+        </a>
+        <button
+          class="navbar-toggler collapsed"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="fa fa-bars"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link sign-btn" href="#">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link sign-btn" href="#">Sign In</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
+    <!-- Hero image -->
+    <div class="hero-content d-flex align-items-center flex-column">
+      <h1>Build Golden Habits, Unlock your Potential</h1>
+      <p>
+        Focus on what truly matters with Habitify. Build the best version of
+        yourself by mastering your habits.
+      </p>
+      <span class="btn btn-primary get-started-btn px-4">Get Started</span>
+    </div>
+    <!-- How it works -->
+    <div class="d-flex flex-column align-items-center how-it-works my-5">
+      <h2>How It Works?</h2>
+      <p class="p2">
+        Habits building in its essential steps: choose a habit, actually
+        remember to do it, and track your development.
+      </p>
+      <div class="container row">
+        <div class="col-md-4 d-flex flex-column how-it-works-item pr-3">
+          <img src="assets/img/set-up-habits.png" class="my-3" />
+          <h3>1. Set up your Habits</h3>
+          <p class="p3 my-1">
+            String together a list of habits to create your daily routines and
+            start your journey.
+          </p>
+        </div>
+        <div class="col-md-4 d-flex flex-column how-it-works-item px-3">
+          <img src="assets/img/get-cue.png" class="my-3" />
+          <h3>2. Get the Cue</h3>
+          <p class="p3 my-1">
+            Stay accountable and never forget your habits with multiple
+            reminders.
+          </p>
+        </div>
+        <div class="col-md-4 d-flex flex-column how-it-works-item pl-3">
+          <img src="assets/img/see-progress.png" class="my-3" />
+          <h3>3. See your Progress</h3>
+          <p class="p3 my-1">
+            View your habit development through the weeks and months with
+            detailed reports.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Habitify in action -->
+    <div
+      class="d-flex flex-column align-items-center how-it-works video-content text-white"
+    >
+      <h2>Habitify in Action</h2>
+      <p class="p2">See how Habitify can enhance your habit-building process</p>
+      <div class="container">
+        <video
+          class="video-js px-4"
+          controls=""
+          preload="auto"
+          width="100%"
+          height="auto"
+          data-setup="{}"
+          poster="assets/img/video-poster.jpg"
+          src="assets/vid/habitify-landing-page-video.mp4"
+        ></video>
+      </div>
+    </div>
+    <!-- Harness the power of data -->
+    <div
+      class="d-flex flex-column how-it-works harness-power-content align-items-center pt-5"
+    >
+      <h2>Harness the Power of Data</h2>
+      <p class="p2">
+        Get the tactical information you need to level up your habits.
+      </p>
+      <span class="btn btn-primary get-started-btn px-4">Get Started</span>
+      <div class="container">
+        <img
+          src="assets/img/data-visualization-artwork.jpg"
+          class="my-3 w-100"
+        />
+      </div>
+    </div>
+    <!-- The golden keys -->
+    <div class="container golden-keys-content">
+      <!-- Golden keys section on large screen -->
+      <div class="row d-none d-lg-flex px-4">
+        <div
+          class="nav flex-column nav-pills col-md-6 w-25"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+        >
+          <h2>The Golden Keys to a Better Life</h2>
+          <p class="p2">
+            Translate your potential into concrete habits with a set of Habitify
+            features.
+          </p>
+          <a
+            class="nav-link mt-3"
+            id="v-pills-never-forget-tab"
+            data-toggle="pill"
+            href="#v-pills-never-forget"
+            role="tab"
+            aria-controls="v-pills-never-forget"
+            aria-selected="true"
+          >
+            <i class="fa fa-bell"></i>
+            Never forget your habits.</a
+          >
+          <a
+            class="nav-link mt-3"
+            id="v-pills-maintain-streak-tab"
+            data-toggle="pill"
+            href="#v-pills-maintain-streak"
+            role="tab"
+            aria-controls="v-pills-maintain-streak"
+            aria-selected="false"
+          >
+            <i class="fa fa-fire-flame-simple"></i>
+            Maintain your Streaks.</a
+          >
+          <a
+            class="nav-link mt-3"
+            id="v-pills-habit-calendar-tab"
+            data-toggle="pill"
+            href="#v-pills-habit-calendar"
+            role="tab"
+            aria-controls="v-pills-habit-calendar"
+            aria-selected="false"
+          >
+            <i class="fa fa-calendar"></i>
+            Get an overview of Habit Calendars.</a
+          >
+          <a
+            class="nav-link mt-3 active"
+            id="v-pills-completion-rate-tab"
+            data-toggle="pill"
+            href="#v-pills-completion-rate"
+            role="tab"
+            aria-controls="v-pills-completion-rate"
+            aria-selected="false"
+          >
+            <i class="fa fa-chart-pie"></i>
+            View the Completion Rate.</a
+          >
+          <a
+            class="nav-link mt-3"
+            id="v-pills-document-notes-tab"
+            data-toggle="pill"
+            href="#v-pills-document-notes"
+            role="tab"
+            aria-controls="v-pills-document-notes"
+            aria-selected="false"
+          >
+            <i class="fa fa-pencil"></i>
+            Document with Notes.</a
+          >
+          <a
+            class="nav-link mt-3"
+            id="v-pills-time-goals-tab"
+            data-toggle="pill"
+            href="#v-pills-time-goals"
+            role="tab"
+            aria-controls="v-pills-time-goals"
+            aria-selected="false"
+          >
+            <i class="fa fa-gauge-simple"></i>
+            Set Time goals for your habits.</a
+          >
+        </div>
+        <div class="tab-content col-md-6" id="v-pills-tabContent">
+          <div
+            class="tab-pane fade"
+            id="v-pills-never-forget"
+            role="tabpanel"
+            aria-labelledby="v-pills-never-forget-tab"
+          >
+            <video
+              autoplay=""
+              loop=""
+              class="w-100"
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              src="assets/vid/never-forget.mp4"
+            ></video>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="v-pills-maintain-streak"
+            role="tabpanel"
+            aria-labelledby="v-pills-maintain-streak-tab"
+          >
+            <video
+              autoplay=""
+              class="w-100"
+              loop=""
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              src="assets/vid/streaks.mp4"
+            ></video>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="v-pills-habit-calendar"
+            role="tabpanel"
+            aria-labelledby="v-pills-habit-calendar-tab"
+          >
+            <video
+              autoplay=""
+              loop=""
+              muted=""
+              class="w-100"
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              src="assets/vid/calendar.mp4"
+            ></video>
+          </div>
+          <div
+            class="tab-pane fade show active"
+            id="v-pills-completion-rate"
+            role="tabpanel"
+            aria-labelledby="v-pills-completion-rate-tab"
+          >
+            <video
+              autoplay=""
+              loop=""
+              class="w-100"
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              src="assets/vid/completion-rate.mp4"
+            ></video>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="v-pills-document-notes"
+            role="tabpanel"
+            aria-labelledby="v-pills-document-notes-tab"
+          >
+            <video
+              id="826e9c36-d7b5-4ce4-c5b5-0723c0391f80-video"
+              autoplay=""
+              loop=""
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              class="w-100"
+              src="assets/vid/document-notes.mp4"
+            ></video>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="v-pills-time-goals"
+            role="tabpanel"
+            aria-labelledby="v-pills-time-goals-tab"
+          >
+            <video
+              autoplay=""
+              loop=""
+              class="w-100"
+              muted=""
+              playsinline=""
+              data-wf-ignore="true"
+              data-object-fit="cover"
+              src="assets/vid/time-goals.mp4"
+            ></video>
+          </div>
+        </div>
+      </div>
+      <!-- Golden keys section on medium screen -->
+      <div class="d-flex flex-column align-items-center how-it-works d-lg-none">
+        <h2>The Golden Keys</h2>
+        <p class="p2 px-1">
+          Habitify lets you set time-specific reminders or multiple reminders
+          each day for habits.
+        </p>
+        <div class="row mx-4 d-none d-md-flex">
+          <div class="col-6 p-2">
+            <img src="assets/img/streaks.jpg" class="w-100" />
+          </div>
+          <div class="col-6 p-2">
+            <img src="assets/img/streaks.jpg" class="w-100" />
+          </div>
+        </div>
+        <div class="row mx-4 d-none d-md-flex">
+          <div class="col-6 p-2">
+            <img src="assets/img/streaks.jpg" class="w-100" />
+          </div>
+          <div class="col-6 p-2">
+            <img src="assets/img/streaks.jpg" class="w-100" />
+          </div>
+        </div>
+        <!-- Image carousel on small screen -->
+        <div class="carousel-content d-md-none">
+          <div
+            id="myCarousel"
+            class="carousel slide w-100"
+            data-ride="carousel"
+          >
+            <ol class="carousel-indicators mb-0">
+              <li
+                data-target="#myCarousel"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  class="d-block w-75 ml-auto mr-auto"
+                  src="assets/img/calendar.jpeg"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-75 ml-auto mr-auto"
+                  src="assets/img/streaks.jpg"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-75 ml-auto mr-auto"
+                  src="assets/img/reminder.jpg"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-75 ml-auto mr-auto"
+                  src="assets/img/completion-rate.jpg"
+                />
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#myCarousel"
+              role="button"
+              data-slide="prev"
+            ></a>
+            <a
+              class="carousel-control-next"
+              href="#myCarousel"
+              role="button"
+              data-slide="next"
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Reviews -->
+    <div class="review-section mb-5">
+      <div
+        class="container d-flex flex-column align-items-center justify-content-center"
+      >
+        <img
+          src="assets/img/heart-icon.png"
+          height="70px"
+          class="heart-image"
+        />
+        <div class="row px-3 py-4 award-section">
+          <img
+            src="assets/img/best-google-play-award.png"
+            class="col-4 p-2 p-sm-3 p-lg-4"
+          />
+          <img
+            src="assets/img/editor-choice-award.png"
+            class="col-4 p-2 p-sm-3 p-lg-4"
+          />
+          <img
+            src="assets/img/android-excellence-award.png"
+            class="col-4 p-2 p-sm-3 p-lg-4"
+          />
+        </div>
+        <div class="row align-items-center read-stories pb-4">
+          <img
+            src="assets/img/appstore-logo-blue.png"
+            height="18px"
+            class="mr-2"
+          />
+          Read our stories on App Store
+        </div>
+        <div class="row px-3 text-center">
+          <div class="col-md-4 p-4">
+            <img src="assets/img/five-star.png" width="150px" class="mb-2" />
+            <i class="five-star-text"
+              ><br />"It helps me to monitor my goal routines and keeps me in
+              the know about my bad habits as well. Kudos to the team!"</i
+            >
+          </div>
+          <div class="col-md-4 p-4">
+            <img src="assets/img/five-star.png" width="150px" class="mb-2" />
+            <i class="five-star-text"
+              ><br />"The quickest I’ve ever bought premium on an app! I hope I
+              don’t regret it but it’s good so far"</i
+            >
+          </div>
+          <div class="col-md-4 p-4">
+            <img src="assets/img/five-star.png" width="150px" class="mb-2" />
+            <i class="five-star-text"
+              ><br />"I have tried them all, finally sth that is worth it. User
+              friendly, nice dashboards, hitting all my habits!"</i
+            >
+          </div>
+        </div>
+        <!-- Reviews carousel -->
+        <div
+          id="reviewCarousel"
+          class="carousel slide p-2 mb-5"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators mb-3 review-indicators">
+            <li
+              data-target="#reviewCarousel"
+              data-slide-to="0"
+              class="active"
+            ></li>
+            <li data-target="#reviewCarousel" data-slide-to="1"></li>
+            <li data-target="#reviewCarousel" data-slide-to="2"></li>
+            <li data-target="#reviewCarousel" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="carousel-caption review-caption">
+                <h4 class="text-uppercase">
+                  <strong>Learning Japanese - 1097 days straight</strong>
+                </h4>
+                <span>
+                  “Never stop learning is the motto I truly strive for every
+                  day, whether it’s coding, building up a business, or pursuing
+                  my passion for Japanese culture.”
+                </span>
+                <div class="mt-2">
+                  <i>— Davide Jones, CTO at Colto</i>
+                </div>
+              </div>
+              <img
+                class="d-block w-100 review-img"
+                src="assets/img/review-image-1.jpg"
+              />
+              <div class="review-overlay"></div>
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-caption review-caption">
+                <h4 class="text-uppercase">
+                  <strong>Meditation - 730 days in a row</strong>
+                </h4>
+                <span>
+                  “Being a happier, healthier, and more relaxed person has
+                  contributed enormously to success in my professional job.”
+                </span>
+                <div class="mt-2">
+                  <i>— Kirk Strauser, Staff Platform Engineer at Amino</i>
+                </div>
+              </div>
+              <img
+                class="d-block w-100 review-img"
+                src="assets/img/review-image-2.jpeg"
+              />
+              <div class="review-overlay"></div>
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-caption review-caption">
+                <h4 class="text-uppercase">
+                  <strong
+                    >Developed 7 Routines for Peaceful Productivity</strong
+                  >
+                </h4>
+                <span>
+                  “It’s good to feel like the thing I’m doing at the moment is
+                  exactly the thing that I want to do.”
+                </span>
+                <div class="mt-2">
+                  <i>— Ana Sofia Pinho</i>
+                </div>
+              </div>
+              <img
+                class="d-block w-100 review-img"
+                src="assets/img/review-image-3.jpg"
+              />
+              <div class="review-overlay"></div>
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-caption review-caption">
+                <h4 class="text-uppercase">
+                  <strong>Reading Business Articles - 103 days straight</strong>
+                </h4>
+                <span>
+                  “Keeping myself informed about what is happening around the
+                  world definitely improves my professional capacity. It also
+                  opens up more interesting conversations!”
+                </span>
+                <div class="mt-2">
+                  <i
+                    >— Mike Goodner, Quality &amp; Reliability Manager at
+                    Intel</i
+                  >
+                </div>
+              </div>
+              <img
+                class="d-block w-100 review-img"
+                src="assets/img/review-image-4.jpg"
+              />
+              <div class="review-overlay"></div>
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#reviewCarousel"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#reviewCarousel"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Multiple platforms -->
+    <div class="container multi-platform-content">
+      <img src="assets/img/cloud-icon.png" width="70px" class="cloud-image" />
+      <h2 class="mt-4">
+        Multiple-platforms<br />One habit development journey.
+      </h2>
+      <p class="p2 mx-auto mb-4">
+        Start building habits with Habitify on any platform. All seamlessly sync
+        to each other.
+      </p>
+      <div class="row mx-2">
+        <div class="col-6 col-lg-3 p-2">
+          <div
+            class="multi-plat-section d-flex flex-column justify-content-center align-items-center"
+          >
+            <img src="assets/img/android-logo.png" class="multi-plat-img" />
+            <p class="p3 mt-4 mb-2">Visit Play Store</p>
+            <h3>Android</h3>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 p-2">
+          <div
+            class="multi-plat-section d-flex flex-column justify-content-center align-items-center"
+          >
+            <img
+              src="assets/img/appstore-logo-round.png"
+              class="multi-plat-img"
+            />
+            <p class="p3 mt-4 mb-2">Visit Mac App Store</p>
+            <h3>macOS</h3>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 p-2">
+          <div
+            class="multi-plat-section d-flex flex-column justify-content-center align-items-center"
+          >
+            <img src="assets/img/appstore-logo.png" class="multi-plat-img" />
+            <p class="p3 mt-4 mb-2">Visit App Store</p>
+            <h3>iOS & watchOS</h3>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 p-2">
+          <div
+            class="multi-plat-section d-flex flex-column justify-content-center align-items-center"
+          >
+            <img src="assets/img/chrome-logo.png" class="multi-plat-img" />
+            <p class="p3 mt-4 mb-2">Get Started</p>
+            <h3>Web</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Get the keys -->
+    <div class="pre-footer-content d-flex align-items-center flex-column">
+      <h2>Get the Keys</h2>
+      <p class="p2">Start your journey in less than 3 minutes.</p>
+      <span class="btn btn-primary get-started-btn px-4">Get Started</span>
+    </div>
+    <!-- Footer -->
+    <div class="pt-5 pb-3 footer-content">
+      <div class="container text-white footer-container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Habitify</h2>
+            <p>
+              Get in touch with a community of habit builders who strive to
+              better themselves every day with Habitify.
+            </p>
+            <img class="social-logo my-2" src="assets/img/facebook-logo.png" />
+            <img class="social-logo m-2" src="assets/img/twitter-logo.png" />
+            <img class="social-logo my-2" src="assets/img/instagram-logo.png" />
+            <p class="footer-link">Privacy Policy</p>
+            <p class="footer-link">Terms of Use</p>
+            <p>© 2020 Unstatic</p>
+          </div>
+          <div class="col-md-3">
+            <p class="footer-section-heading mt-2">COMPANY</p>
+            <p class="footer-link">Blog</p>
+            <p class="footer-link">Summerian</p>
+            <p class="footer-link">Become Our Affiliates</p>
+          </div>
+          <div class="col-md-3">
+            <p class="footer-section-heading mt-2">RESOURCES</p>
+            <p class="footer-link">Contact</p>
+            <p class="footer-link">Sign Up</p>
+            <p class="footer-link">Sign In</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
