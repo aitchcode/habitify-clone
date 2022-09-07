@@ -33,9 +33,17 @@
     <div class="container-fluid px-0">
       <div class="d-flex">
         <div class="sidebar text-white p-3">
-          <div class="sidebar-item p-2 mt-4 sidebar-profile">
-            <img src="assets/img/profile-image.png" width="26px" class="mr-1" />
-            Hammad Ahmed
+          <div
+            class="sidebar-item p-2 mt-4 sidebar-profile d-flex align-items-center"
+          >
+            <img
+              id="user-picture"
+              src="assets/img/user-default.webp"
+              width="26px"
+              height="26px"
+              class="mr-2"
+            />
+            <span id="user-name">John Doe</span>
           </div>
           <div class="sidebar-item p-2 active">
             <img src="assets/img/dashboard-icon.svg" class="mr-2" />
@@ -252,5 +260,6 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <script src="js/dashboard.js"></script>
   </body>
 </html>
