@@ -5,7 +5,8 @@ function handleCredentialResponse(response) {
   // Storing user in local storage
   const user = {
     name: responsePayload.name,
-    picture: responsePayload.picture
+    picture: responsePayload.picture,
+    email: responsePayload.email
   }
   window.localStorage.setItem('user', JSON.stringify(user));
 
