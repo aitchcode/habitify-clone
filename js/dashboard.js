@@ -10,7 +10,7 @@ if (user != null) {
   userId = user.email;
 }
 
-function populateHabit(element) {
+let populateHabit = (element) => {
   const habitItem = `
   <li class="d-flex">
     <img src="assets/img/habit-icon.svg" class="m-3 mr-0" />
@@ -19,26 +19,56 @@ function populateHabit(element) {
         <span class="habit-name">${element.name}</span>
         <span class="habit-goal mt-1 text-lowercase">0 / ${element.goal.number} ${element.goal.times} ${element.goal.per}</span>
       </div>
-      <div class="ml-auto mr-3">
+      <div class="ml-auto mr-3 habit-menu">
         <a class="search-btn mr-2">
           <i class="fa fa-check mr-1"></i>
           Done
         </a>
-          <a class="search-btn px-3">
+        <a class="search-btn px-3" id="habitMenu" data-toggle="dropdown">
           <i class="fa fa-ellipsis-vertical"></i>
         </a>
+        <div class="dropdown-menu" aria-labelledby="habitMenu">
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-check mr-1"></i>
+            Check-in
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-arrow-right mr-1"></i>
+            Skip
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-xmark mr-1"></i>
+            Fail
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-pen mr-1"></i>
+            Edit
+          </a>
+        </div>
       </div>
     </div>
   </li>`;
   $('#list-of-habits').append(habitItem);
 }
 
-function populateHabits() {
+let populateHabits = () => {
   habits = JSON.parse(window.localStorage.getItem(`${userId}-habits`));
 
   if (habits != null) {
     for(const habit of habits) populateHabit(habit);
   }
+}
+
+let habitSectionForEmptyList = () => {
+  if (habits == null) $('.habits-section').removeAttr('hidden')
+  else $('.habits-section').attr('hidden', 'true')
+}
+
+let disableSaveButton = () => {
+  $('#save-btn')
+  .css('cursor', 'default')
+  .css('opacity', '30%')
+  .prop("onclick", null).off("click");
 }
 
 $( document ).ready(
@@ -47,33 +77,21 @@ $( document ).ready(
   disableSaveButton()
   );
 
-function disableSaveButton() {
-  $('#save-btn')
-  .css('cursor', 'default')
-  .css('opacity', '30%')
-  .prop("onclick", null).off("click");
-}
-
-function enableSaveButton() {
+let enableSaveButton = () => {
   $('#save-btn')
   .css('cursor', 'pointer')
   .css('opacity', '100%')
   .attr("onclick", 'addHabit()');
 }
 
-function emptyFields() {
+let emptyFields = () => {
   $('#habit-name').val("");
   $('#goal-number').val("1");
   $('#goal-times').val("Times");
   $('#goal-per').val("Per Day");
 }
 
-function habitSectionForEmptyList() {
-  if (habits == null) $('.habits-section').removeAttr('hidden')
-  else $('.habits-section').attr('hidden', 'true')
-}
-
-function addHabit() {
+let addHabit = () => {
   // Loading existing habits of current user
   let habits = JSON.parse(window.localStorage.getItem(`${userId}-habits`));
 
@@ -97,7 +115,7 @@ function addHabit() {
   $('.habits-section').attr('hidden', 'true');
 }
 
-function validate() {
+let validate = () => {
   const value = parseFloat($('#goal-number').val());
   if ($('#habit-name').val() == "" || !Number.isSafeInteger(value) || value < 1 || value > 100) disableSaveButton();
   else enableSaveButton();

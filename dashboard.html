@@ -91,44 +91,42 @@
                 <span class="mx-1">My Habits Order</span>
                 <i class="fa fa-caret-down"></i>
               </a>
-              <a
-                class="add-habit-btn px-3"
-                id="addHabitDropdown"
-                data-toggle="dropdown"
-                data-target="addHabitList"
-              >
-                <i class="fa fa-add mr-1"></i>
-                Add Habits
-                <i class="fa fa-caret-down ml-1"></i>
-              </a>
-              <div
-                id="addHabitList"
-                class="dropdown-menu"
-                aria-labelledby="addHabitDropdown"
-              >
+              <!-- Add habit dropdown -->
+              <span class="dropdown">
                 <a
-                  class="dropdown-item"
-                  href="#"
-                  data-toggle="modal"
-                  data-target="#addHabitModal"
-                  onclick="disableSaveButton();emptyFields();"
+                  class="add-habit-btn px-3"
+                  id="addHabitDropdown"
+                  data-toggle="dropdown"
                 >
-                  <i class="fa fa-infinity mr-1"></i>
-                  Create Good Habit</a
-                >
-                <a class="dropdown-item mb-line" href="#">
-                  <img
-                    src="assets/img/not-allowed-icon.svg"
-                    width="16px"
-                    class="text-center mr-1 mt-0"
-                  />
-                  Break Bad Habit</a
-                >
-                <a class="dropdown-item" href="#">
-                  <i class="fa fa-add mr-1 text-center"></i>
-                  Log mood</a
-                >
-              </div>
+                  <i class="fa fa-add mr-1"></i>
+                  Add Habits
+                  <i class="fa fa-caret-down ml-1"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="addHabitDropdown">
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#addHabitModal"
+                    onclick="disableSaveButton();emptyFields();"
+                  >
+                    <i class="fa fa-infinity mr-1"></i>
+                    Create Good Habit</a
+                  >
+                  <a class="dropdown-item mb-line" href="#">
+                    <img
+                      src="assets/img/not-allowed-icon.svg"
+                      width="16px"
+                      class="text-center mr-1"
+                    />
+                    Break Bad Habit</a
+                  >
+                  <a class="dropdown-item" href="#">
+                    <i class="fa fa-add mr-1 text-center"></i>
+                    Log mood</a
+                  >
+                </div>
+              </span>
             </div>
           </div>
           <!-- Modal -->
@@ -173,7 +171,6 @@
                         max="100"
                         step="1"
                         value="1"
-                        pattern="/[^0-9]/g"
                         oninput="validate()"
                         required
                       />

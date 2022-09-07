@@ -231,3 +231,8 @@ input:focus {
   font-size: 12px;
   color: var(--unfocused-item);
 }
+
+.habit-menu .dropdown-menu {
+  margin-right: 13px;
+  width: 70px;
+}
