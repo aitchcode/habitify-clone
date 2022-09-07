@@ -43,7 +43,7 @@
               height="26px"
               class="mr-2"
             />
-            <span id="user-name">John Doe</span>
+            <span id="user-name">Guest</span>
           </div>
           <div class="sidebar-item p-2 active">
             <img src="assets/img/dashboard-icon.svg" class="mr-2" />
@@ -111,6 +111,7 @@
                   href="#"
                   data-toggle="modal"
                   data-target="#addHabitModal"
+                  onclick="disableSaveButton();emptyFields();"
                 >
                   <i class="fa fa-infinity mr-1"></i>
                   Create Good Habit</a
@@ -136,7 +137,7 @@
             id="addHabitModal"
             tabindex="-1"
             role="dialog"
-            aria-labelledby="exampleModalLabel"
+            aria-labelledby="addHabitModalLabel"
             aria-hidden="false"
           >
             <div class="modal-dialog" role="document">
@@ -150,7 +151,12 @@
                   <div class="text-uppercase sidebar-section mb-1 mr-auto ml-2">
                     Name
                   </div>
-                  <input type="text" required />
+                  <input
+                    type="text"
+                    required
+                    id="habit-name"
+                    oninput="validate()"
+                  />
                   <div
                     class="text-uppercase sidebar-section mb-1 mr-auto ml-2 mt-2"
                   >
@@ -160,25 +166,29 @@
                   <div class="row m-0">
                     <div class="col-4 p-0 pr-3">
                       <input
+                        id="goal-number"
                         class="w-100"
                         type="number"
                         min="1"
                         max="100"
                         step="1"
                         value="1"
+                        pattern="/[^0-9]/g"
+                        oninput="validate()"
+                        required
                       />
                     </div>
                     <div class="col-4 p-0 pr-3">
-                      <select class="w-100">
-                        <option>Times</option>
-                        <option>Mins</option>
+                      <select class="w-100" id="goal-times">
+                        <option value="Times" selected>Times</option>
+                        <option value="Mins">Mins</option>
                       </select>
                     </div>
                     <div class="col-4 p-0">
-                      <select class="w-100">
-                        <option class="pt-5">Per Day</option>
-                        <option>Per Week</option>
-                        <option>Per Month</option>
+                      <select class="w-100" id="goal-per">
+                        <option value="Per Day" selected>Per Day</option>
+                        <option value="Per Week">Per Week</option>
+                        <option value="Per Month">Per Month</option>
                       </select>
                     </div>
                   </div>
@@ -187,7 +197,11 @@
                   <a class="search-btn px-2 mr-2" data-dismiss="modal">
                     <span class="mx-1">Cancel</span>
                   </a>
-                  <a class="add-habit-btn px-2">
+                  <a
+                    id="save-btn"
+                    class="add-habit-btn px-2"
+                    onclick="addHabit()"
+                  >
                     <span class="mx-1">Save</span>
                   </a>
                 </div>
@@ -196,8 +210,7 @@
           </div>
           <!-- Add habit content on empty body -->
           <div
-            class="d-none flex-column justify-content-center habits-section align-items-center text-center"
-            id="addHabitContentOnEmptyBody"
+            class="flex-column justify-content-center habits-section align-items-center text-center"
           >
             <img
               src="assets/img/habits-section-image-1.svg"
@@ -214,32 +227,14 @@
               class="search-btn px-2 mb-1"
               data-toggle="modal"
               data-target="#addHabitModal"
+              onclick="disableSaveButton();emptyFields();"
             >
               <i class="fa fa-add mr-1"></i>
               Add Habits
             </a>
           </div>
           <!-- Habits content -->
-          <ul class="p-0 habits-list">
-            <li class="d-flex">
-              <img src="assets/img/habit-icon.svg" class="m-3 mr-0" />
-              <div class="w-100 d-flex habit-details align-items-center">
-                <div class="row m-0 flex-column">
-                  <span class="habit-name">jogging</span>
-                  <span class="habit-goal mt-1">0 / 1 times</span>
-                </div>
-                <div class="ml-auto mr-3">
-                  <a class="search-btn mr-2">
-                    <i class="fa fa-check mr-1"></i>
-                    Done
-                  </a>
-                  <a class="search-btn px-3">
-                    <i class="fa fa-ellipsis-vertical"></i>
-                  </a>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <ul class="p-0 habits-list" id="list-of-habits"></ul>
         </div>
       </div>
     </div>
