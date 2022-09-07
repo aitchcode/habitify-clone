@@ -1,7 +1,6 @@
 :root {
   --container-bg: #262626;
   --body-bg: #171717;
-  --border: #444444;
   --default-color: #3662cc;
   --secondary-color: #424242;
   --unfocused-item: #7b7c7c;
@@ -10,8 +9,16 @@
   --dropdown-color: #333333;
   --hover-bg: #323232;
   --dropdown-txt-color: #ffffffb3;
-  --input-border: #454953;
   --habit-img-bg: #19262a;
+  --border: 0.1rem solid #444444;
+  --input-border: 0.1rem solid #454953;
+  --focused-input-border: 0.1rem solid var(--default-color);
+  --btn-font-size: 0.75rem;
+  --btn-icon-size: 0.875rem;
+  --border-radius: 0.25rem;
+  --sidebar-font-size: 0.813rem;
+  --sidebar-border-radius: 0.313rem;
+  --dropdown-icon-size: 0.78rem;
 }
 
 * {
@@ -27,65 +34,65 @@ body {
 }
 
 .sidebar {
-  min-width: 220px;
+  min-width: 15rem;
   height: 100vh;
   background: var(--body-bg);
-  border-right: 1.5px solid var(--border);
+  border-right: var(--border);
   overflow-y: auto;
 }
 
 .main {
   background: var(--body-bg);
-  border-right: 1.5px solid var(--border);
-  min-width: 600px;
-  max-width: 1300px;
+  border-right: var(--border);
+  min-width: 37rem;
+  max-width: 82rem;
   resize: horizontal;
   overflow: auto;
 }
 
 .topnav {
-  border-bottom: 1.5px solid var(--border);
+  border-bottom: var(--border);
   background: var(--body-bg);
-  padding: 10px;
+  padding: 0.625rem;
   position: sticky;
 }
 
 .heading {
-  font-size: 17px;
+  font-size: 1.063rem;
   font-weight: 600;
 }
 
 .add-habit-btn {
-  font-size: 12px;
+  font-size: var(--btn-font-size);
   background-color: var(--default-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   cursor: pointer;
-  padding: 7px;
+  padding: 0.438rem;
 }
 
 .add-habit-btn i {
-  font-size: 14px;
+  font-size: var(--btn-icon-size);
 }
 
 .search-btn {
-  font-size: 12px;
+  font-size: var(--btn-font-size);
   background-color: var(--secondary-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   cursor: pointer;
-  padding: 7px 8px;
-  padding-left: 10px;
+  padding: 0.438rem 0.5rem;
+  padding-left: 0.625rem;
 }
 
 .search-btn i {
-  font-size: 14px;
+  font-size: var(--btn-icon-size);
 }
 
 .sidebar-item {
   color: var(--unfocused-item);
-  font-size: 13px;
+  font-size: var(--sidebar-font-size);
   font-weight: 500;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: var(--sidebar-border-radius);
 }
 
 .sidebar-item:hover {
@@ -97,7 +104,7 @@ body {
 }
 
 .sidebar-section {
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 600;
   color: var(--unfocused-item);
 }
@@ -118,8 +125,8 @@ body {
 .sidebar-profile {
   color: white;
   background: var(--hover-bg);
-  border: 1.5px solid var(--border);
-  margin-bottom: 12px;
+  border: var(--border);
+  margin-bottom: 0.75rem;
 }
 
 .sidebar-profile img {
@@ -131,36 +138,36 @@ body {
 }
 
 .habits-section {
-  height: calc(100vh - 63px);
+  height: calc(100vh - 4rem);
   overflow-y: auto;
   display: flex;
 }
 
 .habits-section p {
-  font-size: 15px;
+  font-size: 0.938rem;
   font-weight: 600;
 }
 
 .habits-section span {
-  font-size: 13px;
+  font-size: var(--sidebar-font-size);
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.125rem;
   color: var(--unfocused-item);
-  max-width: 298px;
+  max-width: 19rem;
 }
 
 .dropdown-menu {
-  margin: 7px 5px;
-  width: 200px;
+  margin: 0.438rem 0.313rem;
+  width: 12.5rem;
   padding: 0;
-  border: 1.5px solid var(--border);
+  border: var(--border);
   background-color: var(--dropdown-color);
-  border-radius: 5px;
+  border-radius: var(--sidebar-border-radius);
 }
 
 .dropdown-item {
-  padding: 7px 10px;
-  font-size: 12px;
+  padding: 0.438rem 0.625rem;
+  font-size: var(--btn-font-size);
   font-weight: 400;
   color: var(--dropdown-txt-color);
 }
@@ -172,16 +179,16 @@ body {
 
 .dropdown-item i {
   color: white;
-  font-size: 12.5px;
-  width: 20px;
+  font-size: var(--dropdown-icon-size);
+  width: 1.25rem;
 }
 
 .mb-line {
-  border-bottom: 1.5px solid var(--border);
+  border-bottom: var(--border);
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -190,7 +197,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--secondary-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 .modal-content {
@@ -201,12 +208,12 @@ body {
 input,
 select {
   outline: 0;
-  border-radius: 3px;
-  border: 1.5px solid var(--input-border);
+  border-radius: var(--border-radius);
+  border: var(--input-border);
   background: var(--secondary-color);
-  color: #fff;
-  font-size: 12px;
-  padding: 5px;
+  color: white;
+  font-size: var(--btn-font-size);
+  padding: 0.313rem;
 }
 
 .modal-footer a span {
@@ -217,7 +224,7 @@ input:hover,
 select:hover,
 select:focus,
 input:focus {
-  border: 1.5px solid var(--default-color);
+  border: var(--focused-input-border);
 }
 
 .habits-list li img {
@@ -230,20 +237,20 @@ input:focus {
 }
 
 .habit-details {
-  border-bottom: 1.5px solid var(--border);
+  border-bottom: var(--border);
 }
 
 .habit-name {
-  font-size: 13px;
+  font-size: var(--sidebar-font-size);
   font-weight: 500;
 }
 
 .habit-goal {
-  font-size: 12px;
+  font-size: var(--btn-font-size);
   color: var(--unfocused-item);
 }
 
 .habit-menu .dropdown-menu {
-  margin-right: 13px;
-  width: 70px;
+  margin-right: 0.813rem;
+  width: 6.25rem;
 }

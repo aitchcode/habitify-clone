@@ -91,6 +91,11 @@ let emptyFields = () => {
   $('#goal-per').val("Per Day");
 }
 
+let onModalOpen = () => {
+  disableSaveButton();
+  emptyFields();
+}
+
 let addHabit = () => {
   // Loading existing habits of current user
   let habits = JSON.parse(window.localStorage.getItem(`${userId}-habits`));
