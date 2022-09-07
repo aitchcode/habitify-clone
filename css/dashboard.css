@@ -56,20 +56,28 @@ body {
 }
 
 .add-habit-btn {
-  font-size: 13px;
+  font-size: 12px;
   background-color: var(--default-color);
   border-radius: 4px;
   cursor: pointer;
   padding: 7px;
 }
 
+.add-habit-btn i {
+  font-size: 14px;
+}
+
 .search-btn {
-  font-size: 13px;
+  font-size: 12px;
   background-color: var(--secondary-color);
   border-radius: 4px;
   cursor: pointer;
   padding: 7px 8px;
   padding-left: 10px;
+}
+
+.search-btn i {
+  font-size: 14px;
 }
 
 .sidebar-item {
@@ -99,6 +107,10 @@ body {
   color: white;
 }
 
+.active:hover {
+  background: var(--default-color);
+}
+
 .active img {
   filter: var(--filter);
 }
@@ -119,7 +131,7 @@ body {
 }
 
 .habits-section {
-  height: calc(100vh - 47px);
+  height: calc(100vh - 63px);
   overflow-y: auto;
   display: flex;
 }
@@ -148,7 +160,6 @@ body {
 
 .dropdown-item {
   padding: 7px 10px;
-  margin: 5px 0px;
   font-size: 12px;
   font-weight: 400;
   color: var(--dropdown-txt-color);
@@ -161,8 +172,8 @@ body {
 
 .dropdown-item i {
   color: white;
-  font-size: 13px;
-  width: 16px;
+  font-size: 12.5px;
+  width: 20px;
 }
 
 .mb-line {

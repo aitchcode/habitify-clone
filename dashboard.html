@@ -87,7 +87,7 @@
                 <i class="fa fa-caret-down"></i>
               </a>
               <a class="search-btn px-3 mr-2">
-                <img src="assets/img/order-icon.svg" class="mb-1" />
+                <i class="fa fa-arrow-up-short-wide"></i>
                 <span class="mx-1">My Habits Order</span>
                 <i class="fa fa-caret-down"></i>
               </a>
@@ -104,24 +104,20 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="addHabitDropdown">
                   <a
-                    class="dropdown-item"
+                    class="dropdown-item mt-1"
                     href="#"
                     data-toggle="modal"
                     data-target="#addHabitModal"
                     onclick="disableSaveButton();emptyFields();"
                   >
-                    <i class="fa fa-infinity mr-1"></i>
+                    <i class="fa fa-infinity mr-1 text-center"></i>
                     Create Good Habit</a
                   >
                   <a class="dropdown-item mb-line" href="#">
-                    <img
-                      src="assets/img/not-allowed-icon.svg"
-                      width="16px"
-                      class="text-center mr-1"
-                    />
+                    <i class="fa fa-ban mr-1 text-center"></i>
                     Break Bad Habit</a
                   >
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item my-1" href="#">
                     <i class="fa fa-add mr-1 text-center"></i>
                     Log mood</a
                   >
@@ -221,7 +217,7 @@
               follow!</span
             >
             <a
-              class="search-btn px-2 mb-1"
+              class="search-btn px-2"
               data-toggle="modal"
               data-target="#addHabitModal"
               onclick="disableSaveButton();emptyFields();"
@@ -252,6 +248,7 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <!-- Dashboard script -->
     <script src="js/dashboard.js"></script>
   </body>
 </html>

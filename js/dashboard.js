@@ -28,20 +28,20 @@ let populateHabit = (element) => {
           <i class="fa fa-ellipsis-vertical"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="habitMenu">
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-check mr-1"></i>
+          <a class="dropdown-item mt-1" href="#">
+            <i class="fa fa-check mr-1 text-center"></i>
             Check-in
           </a>
           <a class="dropdown-item" href="#">
-            <i class="fa fa-arrow-right mr-1"></i>
+            <i class="fa fa-arrow-right mr-1 text-center"></i>
             Skip
           </a>
           <a class="dropdown-item" href="#">
-            <i class="fa fa-xmark mr-1"></i>
+            <i class="fa fa-xmark mr-1 text-center"></i>
             Fail
           </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-pen mr-1"></i>
+          <a class="dropdown-item mb-1" href="#">
+            <i class="fa fa-pen mr-1 text-center"></i>
             Edit
           </a>
         </div>
