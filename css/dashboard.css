@@ -121,6 +121,7 @@ body {
 .habits-section {
   height: calc(100vh - 47px);
   overflow-y: auto;
+  display: flex;
 }
 
 .habits-section p {

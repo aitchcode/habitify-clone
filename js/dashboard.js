@@ -1,7 +1,14 @@
+let habits = [];
+let userId = "guest";
+
 // Set user's name and picture
 const user = JSON.parse(window.localStorage.getItem('user'));
-$('#user-name').text(user.name);
-$('#user-picture').attr('src', user.picture);
+
+if (user != null) {
+  $('#user-name').text(user.name);
+  $('#user-picture').attr('src', user.picture);
+  userId = user.email;
+}
 
 function populateHabit(element) {
   const habitItem = `
@@ -10,7 +17,7 @@ function populateHabit(element) {
     <div class="w-100 d-flex habit-details align-items-center">
       <div class="row m-0 flex-column">
         <span class="habit-name">${element.name}</span>
-        <span class="habit-goal mt-1 text-lowercase">0 / ${element.goal.number} ${element.goal.times}</span>
+        <span class="habit-goal mt-1 text-lowercase">0 / ${element.goal.number} ${element.goal.times} ${element.goal.per}</span>
       </div>
       <div class="ml-auto mr-3">
         <a class="search-btn mr-2">
@@ -27,15 +34,16 @@ function populateHabit(element) {
 }
 
 function populateHabits() {
-  let habits = JSON.parse(window.localStorage.getItem(`${user.email}-habits`));
+  habits = JSON.parse(window.localStorage.getItem(`${userId}-habits`));
 
   if (habits != null) {
-    habits.forEach(element => populateHabit(element));
+    for(const habit of habits) populateHabit(habit);
   }
 }
 
 $( document ).ready(
   populateHabits(),
+  habitSectionForEmptyList(),
   disableSaveButton()
   );
 
@@ -50,6 +58,7 @@ function enableSaveButton() {
   $('#save-btn')
   .css('cursor', 'pointer')
   .css('opacity', '100%')
+  .attr("onclick", 'addHabit()');
 }
 
 function emptyFields() {
@@ -59,16 +68,21 @@ function emptyFields() {
   $('#goal-per').val("Per Day");
 }
 
+function habitSectionForEmptyList() {
+  if (habits == null) $('.habits-section').removeAttr('hidden')
+  else $('.habits-section').attr('hidden', 'true')
+}
+
 function addHabit() {
   // Loading existing habits of current user
-  let habits = JSON.parse(window.localStorage.getItem(`${user.email}-habits`));
+  let habits = JSON.parse(window.localStorage.getItem(`${userId}-habits`));
 
   if (habits == null) habits=[];
 
   const habit = {
     name: $('#habit-name').val(),
     goal: {
-      number: $('#goal-number').val(),
+      number: parseInt($('#goal-number').val()),
       times: $('#goal-times').find(':selected').val(),
       per: $('#goal-per').find(':selected').val()
     }
@@ -76,17 +90,15 @@ function addHabit() {
 
   habits.push(habit);
 
-  window.localStorage.setItem(`${user.email}-habits`, JSON.stringify(habits));
+  window.localStorage.setItem(`${userId}-habits`, JSON.stringify(habits));
 
   populateHabit(habit);
   $('#addHabitModal').modal('toggle');
-  emptyFields();
+  $('.habits-section').attr('hidden', 'true');
 }
 
-function validateName(){
-  
-}
-
-function validateGoal(){
-  
+function validate() {
+  const value = parseFloat($('#goal-number').val());
+  if ($('#habit-name').val() == "" || !Number.isSafeInteger(value) || value < 1 || value > 100) disableSaveButton();
+  else enableSaveButton();
 }
