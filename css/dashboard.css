@@ -11,6 +11,7 @@
   --hover-bg: #323232;
   --dropdown-txt-color: #ffffffb3;
   --input-border: #454953;
+  --habit-img-bg: #19262a;
 }
 
 * {
@@ -55,19 +56,19 @@ body {
 }
 
 .add-habit-btn {
-  font-size: 12px;
+  font-size: 13px;
   background-color: var(--default-color);
   border-radius: 4px;
   cursor: pointer;
-  padding: 6px;
+  padding: 7px;
 }
 
 .search-btn {
-  font-size: 12px;
+  font-size: 13px;
   background-color: var(--secondary-color);
   border-radius: 4px;
   cursor: pointer;
-  padding: 6px 8px;
+  padding: 7px 8px;
   padding-left: 10px;
 }
 
@@ -205,4 +206,27 @@ select:hover,
 select:focus,
 input:focus {
   border: 1.5px solid var(--default-color);
+}
+
+.habits-list li img {
+  background: var(--habit-img-bg);
+  border-radius: 100%;
+}
+
+.habits-list li:hover {
+  background: var(--container-bg);
+}
+
+.habit-details {
+  border-bottom: 1.5px solid var(--border);
+}
+
+.habit-name {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.habit-goal {
+  font-size: 12px;
+  color: var(--unfocused-item);
 }

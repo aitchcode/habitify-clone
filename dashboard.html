@@ -122,10 +122,79 @@
               </div>
             </div>
           </div>
+          <!-- Modal -->
           <div
-            class="d-flex flex-column justify-content-center habits-section align-items-center text-center"
+            class="modal fade"
+            id="addHabitModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="false"
           >
-            <img src="assets/img/habits-section-image-1.svg" class="mb-2" />
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                  <h5 class="modal-title heading" id="addHabitModalLabel">
+                    New Habit
+                  </h5>
+                </div>
+                <div class="modal-body py-0 d-flex flex-column">
+                  <div class="text-uppercase sidebar-section mb-1 mr-auto ml-2">
+                    Name
+                  </div>
+                  <input type="text" required />
+                  <div
+                    class="text-uppercase sidebar-section mb-1 mr-auto ml-2 mt-2"
+                  >
+                    Goal
+                  </div>
+
+                  <div class="row m-0">
+                    <div class="col-4 p-0 pr-3">
+                      <input
+                        class="w-100"
+                        type="number"
+                        min="1"
+                        max="100"
+                        step="1"
+                        value="1"
+                      />
+                    </div>
+                    <div class="col-4 p-0 pr-3">
+                      <select class="w-100">
+                        <option>Times</option>
+                        <option>Mins</option>
+                      </select>
+                    </div>
+                    <div class="col-4 p-0">
+                      <select class="w-100">
+                        <option class="pt-5">Per Day</option>
+                        <option>Per Week</option>
+                        <option>Per Month</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer border-top-0 mt-3">
+                  <a class="search-btn px-2 mr-2" data-dismiss="modal">
+                    <span class="mx-1">Cancel</span>
+                  </a>
+                  <a class="add-habit-btn px-2">
+                    <span class="mx-1">Save</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add habit content on empty body -->
+          <div
+            class="d-none flex-column justify-content-center habits-section align-items-center text-center"
+            id="addHabitContentOnEmptyBody"
+          >
+            <img
+              src="assets/img/habits-section-image-1.svg"
+              class="mb-2 mt-1"
+            />
             <img src="assets/img/habits-section-image-2.svg" class="mb-2" />
             <img src="assets/img/habits-section-image-3.svg" class="mb-4" />
             <p class="m-0">The Start of a Better You!</p>
@@ -141,73 +210,28 @@
               <i class="fa fa-add mr-1"></i>
               Add Habits
             </a>
-            <!-- Modal -->
-            <div
-              class="modal fade"
-              id="addHabitModal"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="false"
-            >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header border-bottom-0">
-                    <h5 class="modal-title heading" id="addHabitModalLabel">
-                      New Habit
-                    </h5>
-                  </div>
-                  <div class="modal-body py-0 d-flex flex-column">
-                    <div
-                      class="text-uppercase sidebar-section mb-1 mr-auto ml-2"
-                    >
-                      Name
-                    </div>
-                    <input type="text" required />
-                    <div
-                      class="text-uppercase sidebar-section mb-1 mr-auto ml-2 mt-2"
-                    >
-                      Goal
-                    </div>
-
-                    <div class="row m-0">
-                      <div class="col-4 p-0 pr-3">
-                        <input
-                          class="w-100"
-                          type="number"
-                          min="1"
-                          max="100"
-                          step="1"
-                          value="1"
-                        />
-                      </div>
-                      <div class="col-4 p-0 pr-3">
-                        <select class="w-100">
-                          <option>Times</option>
-                          <option>Mins</option>
-                        </select>
-                      </div>
-                      <div class="col-4 p-0">
-                        <select class="w-100">
-                          <option class="pt-5">Per Day</option>
-                          <option>Per Week</option>
-                          <option>Per Month</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-footer border-top-0 mt-3">
-                    <a class="search-btn px-2 mr-2" data-dismiss="modal">
-                      <span class="mx-1">Cancel</span>
-                    </a>
-                    <a class="add-habit-btn px-2">
-                      <span class="mx-1">Save</span>
-                    </a>
-                  </div>
+          </div>
+          <!-- Habits content -->
+          <ul class="p-0 habits-list">
+            <li class="d-flex">
+              <img src="assets/img/habit-icon.svg" class="m-3 mr-0" />
+              <div class="w-100 d-flex habit-details align-items-center">
+                <div class="row m-0 flex-column">
+                  <span class="habit-name">jogging</span>
+                  <span class="habit-goal mt-1">0 / 1 times</span>
+                </div>
+                <div class="ml-auto mr-3">
+                  <a class="search-btn mr-2">
+                    <i class="fa fa-check mr-1"></i>
+                    Done
+                  </a>
+                  <a class="search-btn px-3">
+                    <i class="fa fa-ellipsis-vertical"></i>
+                  </a>
                 </div>
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
