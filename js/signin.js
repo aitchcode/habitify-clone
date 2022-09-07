@@ -1,8 +1,18 @@
 // Google signin
 function handleCredentialResponse(response) {
   const responsePayload = decodeJwtResponse(response.credential);
-  alert(responsePayload.name);
+
+  // Storing user in local storage
+  const user = {
+    name: responsePayload.name,
+    picture: responsePayload.picture
+  }
+  window.localStorage.setItem('user', JSON.stringify(user));
+
+  // Redirect to dashboard after successful signin
+  window.location.href = "https://habitify-clone.netlify.app/dashboard.html";
 }
+
 window.onload = function () {
   google.accounts.id.initialize({
       client_id: "378597707916-k6cav18vjuhtfhoqnv3dkps4bbj5be9t.apps.googleusercontent.com",
