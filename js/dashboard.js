@@ -116,8 +116,8 @@ let addHabit = () => {
   window.localStorage.setItem(`${userId}-habits`, JSON.stringify(habits));
 
   populateHabit(habit);
-  $('#addHabitModal').modal('toggle');
   $('.habits-section').attr('hidden', 'true');
+  $('#addHabitModal').modal('toggle');
 }
 
 let validate = () => {
