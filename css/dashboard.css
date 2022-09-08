@@ -265,3 +265,36 @@ input:focus {
   border: none;
   width: 120px;
 }
+
+.failedHabit {
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+
+.skippedHabit {
+  text-decoration: line-through;
+  text-decoration-color: yellow;
+}
+
+.checkedHabit {
+  text-decoration: line-through;
+  text-decoration-color: green;
+}
+
+.failedHabitTitle {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 0.125rem;
+}
+
+.skippedHabitTitle {
+  text-decoration: line-through;
+  text-decoration-color: yellow;
+  text-decoration-thickness: 0.125rem;
+}
+
+.checkedHabitTitle {
+  text-decoration: line-through;
+  text-decoration-color: green;
+  text-decoration-thickness: 0.125rem;
+}

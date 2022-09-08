@@ -13,16 +13,54 @@ if (user != null) {
   userId = user.email;
 }
 
+const searchHabits = () => {
+  if (habits != null) {
+    const searchedHabits = habits.filter(habit => habit.name.toLowerCase().includes($('#search-txt').val().toLowerCase()));
+    $('#list-of-habits').html('');
+    searchedHabits.forEach(habit => populateHabit(habit));
+  }
+}
+
+const checkHabit = (id) => {
+  let habitObj = habits.find((habit) => habit.id == id);
+  habitObj.status = "checked";
+  window.localStorage.setItem(`${userId}-habits`, JSON.stringify(habits));
+  populateHabits();
+}
+
+const skipHabit = (id) => {
+  let habitObj = habits.find((habit) => habit.id == id);
+  habitObj.status = "skipped";
+  window.localStorage.setItem(`${userId}-habits`, JSON.stringify(habits));
+  populateHabits();
+}
+
+const failHabit = (id) => {
+  let habitObj = habits.find((habit) => habit.id == id);
+  habitObj.status = "failed";
+  window.localStorage.setItem(`${userId}-habits`, JSON.stringify(habits));
+  populateHabits();
+}
+
+const undoHabit = (id) => {
+  let habitObj = habits.find((habit) => habit.id == id);
+  habitObj.status = "";
+  window.localStorage.setItem(`${userId}-habits`, JSON.stringify(habits));
+  populateHabits();
+}
+
 const populateHabit = (element) => {
+  let statusClass = `${element.status}Habit`;
+
   const habitItem = `
   <li class="d-flex">
     <img src="assets/img/habit-icon.svg" class="m-3 mr-0" />
     <div class="w-100 d-flex habit-details align-items-center">
       <div class="row m-0 flex-column">
-        <span class="habit-name">${element.name}</span>
-        <span class="habit-goal mt-1 text-lowercase">0 / ${element.goal.number} ${element.goal.times} ${element.goal.per}</span>
+        <span class="habit-name  ${statusClass}Title">${element.name}</span>
+        <span class="habit-goal mt-1 text-lowercase  ${statusClass}">${element.goal.number} ${element.goal.times} ${element.goal.per}</span>
       </div>
-      <div class="ml-auto mr-3 habit-menu">
+      <div class="ml-auto mr-2 habit-menu">
         <a class="search-btn mr-2">
           <i class="fa fa-check mr-1"></i>
           Done
@@ -31,17 +69,21 @@ const populateHabit = (element) => {
           <i class="fa fa-ellipsis-vertical"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="habitMenu">
-          <a class="dropdown-item mt-1" href="#">
+          <a class="dropdown-item mt-1" href="#" onclick="checkHabit('${element.id}')">
             <i class="fa fa-check mr-1 text-center"></i>
             Check-in
           </a>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="#" onclick="skipHabit('${element.id}')">
             <i class="fa fa-arrow-right mr-1 text-center"></i>
             Skip
           </a>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="#" onclick="failHabit('${element.id}')">
             <i class="fa fa-xmark mr-1 text-center"></i>
             Fail
+          </a>
+          <a class="dropdown-item" href="#" onclick="undoHabit('${element.id}')">
+            <i class="fa fa-rotate-left mr-1 text-center"></i>
+            Undo
           </a>
           <a class="dropdown-item mb-1" href="#" data-toggle="modal"
           data-target="#editHabitModal" onclick="populateInputFields('${element.id}')">
@@ -168,6 +210,7 @@ const addHabit = () => {
   if (habits == null) habits=[];
 
   const habit = {
+    status: '',
     id: generateId(),
     name: $('#habit-name').val(),
     goal: {
@@ -191,10 +234,4 @@ const validate = () => {
   const value = parseFloat($('#goal-number').val());
   if ($('#habit-name').val() == "" || !Number.isSafeInteger(value) || value < 1 || value > 100) disableSaveButton();
   else enableSaveButton();
-}
-
-const searchHabits = () => {
-  const searchedHabits = habits.filter(habit => habit.name.toLowerCase().includes($('#search-txt').val().toLowerCase()));
-  $('#list-of-habits').html('');
-  searchedHabits.forEach(habit => populateHabit(habit));
 }
