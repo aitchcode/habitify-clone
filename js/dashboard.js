@@ -44,9 +44,12 @@ const failHabit = (id) => {
 
 const undoHabit = (id) => {
   let habitObj = habits.find((habit) => habit.id == id);
-  habitObj.status = "";
-  window.localStorage.setItem(`${userId}-habits`, JSON.stringify(habits));
-  populateHabits();
+  if (habitObj.status != "")
+  {
+    habitObj.status = "";
+    window.localStorage.setItem(`${userId}-habits`, JSON.stringify(habits));
+    populateHabits();
+  }
 }
 
 const populateHabit = (element) => {
@@ -61,7 +64,7 @@ const populateHabit = (element) => {
         <span class="habit-goal mt-1 text-lowercase  ${statusClass}">${element.goal.number} ${element.goal.times} ${element.goal.per}</span>
       </div>
       <div class="ml-auto mr-2 habit-menu">
-        <a class="search-btn mr-2">
+        <a class="search-btn mr-2" onclick="checkHabit('${element.id}')" >
           <i class="fa fa-check mr-1"></i>
           Done
         </a>
