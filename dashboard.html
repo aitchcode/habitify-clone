@@ -78,60 +78,56 @@
           <div class="pl-3 pr-2 topnav d-flex d-none">
             <p class="my-0 heading">All Habits</p>
             <div class="ml-auto">
-              <a class="search-btn mr-2">
+              <a class="search-btn mr-2" id="search-habit-btn">
                 <i class="fa fa-search"></i>
+                <input
+                  type="text"
+                  maxlength="50"
+                  oninput="searchHabits()"
+                  id="search-txt"
+                />
               </a>
-              <a class="search-btn px-3 mr-2">
+              <a class="search-btn mr-2">
                 <img src="assets/img/calendar-icon.svg" class="mb-1" />
-                <span class="mx-1">Today</span>
-                <i class="fa fa-caret-down"></i>
               </a>
-              <a class="search-btn px-3 mr-2">
-                <img src="assets/img/order-icon.svg" class="mb-1" />
-                <span class="mx-1">My Habits Order</span>
-                <i class="fa fa-caret-down"></i>
+              <a class="search-btn px-2 mr-2">
+                <i class="fa fa-arrow-up-short-wide"></i>
               </a>
-              <a
-                class="add-habit-btn px-3"
-                id="addHabitDropdown"
-                data-toggle="dropdown"
-                data-target="addHabitList"
-              >
-                <i class="fa fa-add mr-1"></i>
-                Add Habits
-                <i class="fa fa-caret-down ml-1"></i>
-              </a>
-              <div
-                id="addHabitList"
-                class="dropdown-menu"
-                aria-labelledby="addHabitDropdown"
-              >
+              <!-- Add habit dropdown -->
+              <span class="dropdown">
                 <a
-                  class="dropdown-item"
-                  href="#"
-                  data-toggle="modal"
-                  data-target="#addHabitModal"
-                  onclick="disableSaveButton();emptyFields();"
+                  class="add-habit-btn px-3"
+                  id="addHabitDropdown"
+                  data-toggle="dropdown"
                 >
-                  <i class="fa fa-infinity mr-1"></i>
-                  Create Good Habit</a
-                >
-                <a class="dropdown-item mb-line" href="#">
-                  <img
-                    src="assets/img/not-allowed-icon.svg"
-                    width="16px"
-                    class="text-center mr-1 mt-0"
-                  />
-                  Break Bad Habit</a
-                >
-                <a class="dropdown-item" href="#">
-                  <i class="fa fa-add mr-1 text-center"></i>
-                  Log mood</a
-                >
-              </div>
+                  <i class="fa fa-add mr-1"></i>
+                  Add Habits
+                  <i class="fa fa-caret-down ml-1"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="addHabitDropdown">
+                  <a
+                    class="dropdown-item mt-1"
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#addHabitModal"
+                    onclick="onModalOpen()"
+                  >
+                    <i class="fa fa-infinity mr-1 text-center"></i>
+                    Create Good Habit</a
+                  >
+                  <a class="dropdown-item mb-line" href="#">
+                    <i class="fa fa-ban mr-1 text-center"></i>
+                    Break Bad Habit</a
+                  >
+                  <a class="dropdown-item my-1" href="#">
+                    <i class="fa fa-add mr-1 text-center"></i>
+                    Log mood</a
+                  >
+                </div>
+              </span>
             </div>
           </div>
-          <!-- Modal -->
+          <!-- Add habit modal -->
           <div
             class="modal fade"
             id="addHabitModal"
@@ -173,7 +169,6 @@
                         max="100"
                         step="1"
                         value="1"
-                        pattern="/[^0-9]/g"
                         oninput="validate()"
                         required
                       />
@@ -198,8 +193,8 @@
                     <span class="mx-1">Cancel</span>
                   </a>
                   <a
-                    id="save-btn"
                     class="add-habit-btn px-2"
+                    id="save-btn"
                     onclick="addHabit()"
                   >
                     <span class="mx-1">Save</span>
@@ -224,10 +219,10 @@
               follow!</span
             >
             <a
-              class="search-btn px-2 mb-1"
+              class="search-btn px-2"
               data-toggle="modal"
               data-target="#addHabitModal"
-              onclick="disableSaveButton();emptyFields();"
+              onclick="onModalOpen()"
             >
               <i class="fa fa-add mr-1"></i>
               Add Habits
@@ -235,6 +230,81 @@
           </div>
           <!-- Habits content -->
           <ul class="p-0 habits-list" id="list-of-habits"></ul>
+          <!-- Edit habit modal -->
+          <div
+            class="modal fade"
+            id="editHabitModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="editHabitModalLabel"
+            aria-hidden="false"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                  <h5 class="modal-title heading" id="addHabitModalLabel">
+                    Edit Habit
+                  </h5>
+                </div>
+                <div class="modal-body py-0 d-flex flex-column">
+                  <div class="text-uppercase sidebar-section mb-1 mr-auto ml-2">
+                    Name
+                  </div>
+                  <input
+                    type="text"
+                    required
+                    id="edit-habit-name"
+                    oninput="validateForEdit()"
+                  />
+                  <div
+                    class="text-uppercase sidebar-section mb-1 mr-auto ml-2 mt-2"
+                  >
+                    Goal
+                  </div>
+
+                  <div class="row m-0">
+                    <div class="col-4 p-0 pr-3">
+                      <input
+                        id="edit-goal-number"
+                        class="w-100"
+                        type="number"
+                        min="1"
+                        max="100"
+                        step="1"
+                        value="1"
+                        oninput="validateForEdit()"
+                        required
+                      />
+                    </div>
+                    <div class="col-4 p-0 pr-3">
+                      <select class="w-100" id="edit-goal-times">
+                        <option value="Times" selected>Times</option>
+                        <option value="Mins">Mins</option>
+                      </select>
+                    </div>
+                    <div class="col-4 p-0">
+                      <select class="w-100" id="edit-goal-per">
+                        <option value="Per Day" selected>Per Day</option>
+                        <option value="Per Week">Per Week</option>
+                        <option value="Per Month">Per Month</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer border-top-0 mt-3">
+                  <a class="search-btn px-2 mr-auto" id="delete-habit-btn">
+                    <span class="mx-1 text-danger">Delete</span>
+                  </a>
+                  <a class="search-btn px-2 mr-2" data-dismiss="modal">
+                    <span class="mx-1">Cancel</span>
+                  </a>
+                  <a class="add-habit-btn px-2" id="edit-save-btn">
+                    <span class="mx-1">Save</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -255,6 +325,7 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <!-- Dashboard script -->
     <script src="js/dashboard.js"></script>
   </body>
 </html>
