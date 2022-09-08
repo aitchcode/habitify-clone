@@ -34,7 +34,7 @@ body {
 }
 
 .sidebar {
-  min-width: 15rem;
+  min-width: 13rem;
   height: 100vh;
   background: var(--body-bg);
   border-right: var(--border);
@@ -227,6 +227,11 @@ input:focus {
   border: var(--focused-input-border);
 }
 
+.habits-list {
+  height: 91vh;
+  overflow-y: scroll;
+}
+
 .habits-list li img {
   background: var(--habit-img-bg);
   border-radius: 100%;
@@ -253,4 +258,10 @@ input:focus {
 .habit-menu .dropdown-menu {
   margin-right: 0.813rem;
   width: 6.25rem;
+}
+
+#search-habit-btn input {
+  background: transparent;
+  border: none;
+  width: 120px;
 }

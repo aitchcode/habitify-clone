@@ -1,6 +1,9 @@
 let habits = [];
 let userId = "guest";
 
+let habitId = null;
+let obj = null;
+
 // Set user's name and picture
 const user = JSON.parse(window.localStorage.getItem('user'));
 
@@ -10,7 +13,7 @@ if (user != null) {
   userId = user.email;
 }
 
-let populateHabit = (element) => {
+const populateHabit = (element) => {
   const habitItem = `
   <li class="d-flex">
     <img src="assets/img/habit-icon.svg" class="m-3 mr-0" />
@@ -40,7 +43,8 @@ let populateHabit = (element) => {
             <i class="fa fa-xmark mr-1 text-center"></i>
             Fail
           </a>
-          <a class="dropdown-item mb-1" href="#">
+          <a class="dropdown-item mb-1" href="#" data-toggle="modal"
+          data-target="#editHabitModal" onclick="populateInputFields('${element.id}')">
             <i class="fa fa-pen mr-1 text-center"></i>
             Edit
           </a>
@@ -48,23 +52,78 @@ let populateHabit = (element) => {
       </div>
     </div>
   </li>`;
+
   $('#list-of-habits').append(habitItem);
 }
 
-let populateHabits = () => {
+const populateHabits = () => {
+  $('#list-of-habits').html('');
   habits = JSON.parse(window.localStorage.getItem(`${userId}-habits`));
 
   if (habits != null) {
     for(const habit of habits) populateHabit(habit);
   }
+
+  searchHabits();
 }
 
-let habitSectionForEmptyList = () => {
+const saveHabit = (id) => {
+  obj.name = $('#edit-habit-name').val();
+  obj.goal.number = $('#edit-goal-number').val();
+  obj.goal.times = $('#edit-goal-times').val();
+  obj.goal.per = $('#edit-goal-per').val();
+
+  window.localStorage.setItem(`${userId}-habits`, JSON.stringify(habits));
+  populateHabits();
+  $('#editHabitModal').modal('toggle');
+}
+
+const deleteHabit = (id) => {
+  habits = habits.filter(habit => habit != obj);
+
+  window.localStorage.setItem(`${userId}-habits`, JSON.stringify(habits));
+  populateHabits();
+  $('#editHabitModal').modal('toggle');
+}
+
+const disableEditSaveButton = () => {
+  $('#edit-save-btn')
+  .css('cursor', 'default')
+  .css('opacity', '30%')
+  .prop("onclick", null).off("click");
+}
+
+const enableEditSaveButton = (id) => {
+  $('#edit-save-btn')
+  .css('cursor', 'pointer')
+  .css('opacity', '100%')
+  .attr("onclick", `saveHabit('${id}')`);
+}
+
+// Validate input fields for edit habit
+const validateForEdit = () => {
+  const value = parseFloat($('#edit-goal-number').val());
+  if ($('#edit-habit-name').val() == "" || !Number.isSafeInteger(value) || value < 1 || value > 100) disableEditSaveButton();
+  else enableEditSaveButton();
+}
+
+const populateInputFields = (id) => {
+  $('#delete-habit-btn').attr("onclick", `deleteHabit('${id}')`);
+  habitId = id;
+  enableEditSaveButton(id);
+  obj = habits.find((habit) => habit.id == id);
+  $('#edit-habit-name').val(obj.name);
+  $('#edit-goal-number').val(obj.goal.number);
+  $('#edit-goal-times').val(obj.goal.times);
+  $('#edit-goal-per').val(obj.goal.per);
+}
+
+const habitSectionForEmptyList = () => {
   if (habits == null) $('.habits-section').removeAttr('hidden')
   else $('.habits-section').attr('hidden', 'true')
 }
 
-let disableSaveButton = () => {
+const disableSaveButton = () => {
   $('#save-btn')
   .css('cursor', 'default')
   .css('opacity', '30%')
@@ -77,32 +136,39 @@ $( document ).ready(
   disableSaveButton()
   );
 
-let enableSaveButton = () => {
+const enableSaveButton = () => {
   $('#save-btn')
   .css('cursor', 'pointer')
   .css('opacity', '100%')
   .attr("onclick", 'addHabit()');
 }
 
-let emptyFields = () => {
+const emptyFields = () => {
   $('#habit-name').val("");
   $('#goal-number').val("1");
   $('#goal-times').val("Times");
   $('#goal-per').val("Per Day");
 }
 
-let onModalOpen = () => {
+const onModalOpen = () => {
   disableSaveButton();
   emptyFields();
 }
 
-let addHabit = () => {
+// Generate random id for new habit
+const generateId = () => {
+  const random = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  return random() + random() + '-' + random() + '-' + random() + random();
+}
+
+const addHabit = () => {
   // Loading existing habits of current user
-  let habits = JSON.parse(window.localStorage.getItem(`${userId}-habits`));
+  habits = JSON.parse(window.localStorage.getItem(`${userId}-habits`));
 
   if (habits == null) habits=[];
 
   const habit = {
+    id: generateId(),
     name: $('#habit-name').val(),
     goal: {
       number: parseInt($('#goal-number').val()),
@@ -120,8 +186,15 @@ let addHabit = () => {
   $('#addHabitModal').modal('toggle');
 }
 
-let validate = () => {
+// Validate input fields
+const validate = () => {
   const value = parseFloat($('#goal-number').val());
   if ($('#habit-name').val() == "" || !Number.isSafeInteger(value) || value < 1 || value > 100) disableSaveButton();
   else enableSaveButton();
+}
+
+const searchHabits = () => {
+  const searchedHabits = habits.filter(habit => habit.name.toLowerCase().includes($('#search-txt').val().toLowerCase()));
+  $('#list-of-habits').html('');
+  searchedHabits.forEach(habit => populateHabit(habit));
 }
