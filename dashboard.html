@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="assets/img/habitify_favicon.png" />
+    <title>All Habits, Today - Habitify</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!-- Inter font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter"
+    />
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <div class="container-fluid px-0">
+      <div class="d-flex">
+        <div class="sidebar text-white p-3">
+          <div
+            class="sidebar-item p-2 mt-4 sidebar-profile d-flex align-items-center"
+          >
+            <img
+              id="user-picture"
+              src="assets/img/user-default.webp"
+              width="26px"
+              height="26px"
+              class="mr-2"
+            />
+            <span id="user-name">Guest</span>
+          </div>
+          <div class="sidebar-item p-2 active">
+            <img src="assets/img/dashboard-icon.svg" class="mr-2" />
+            All Habits
+          </div>
+          <div class="sidebar-item p-2">
+            <img src="assets/img/afternoon-icon.svg" class="mr-2" />
+            Afternoon
+          </div>
+          <div class="text-uppercase sidebar-section mt-4 mb-1">Areas</div>
+          <div class="sidebar-item p-2">
+            <img src="assets/img/add-icon.svg" class="mr-2" />
+            New Area
+          </div>
+          <div class="text-uppercase sidebar-section mt-4 mb-1">
+            Preferences
+          </div>
+          <div class="sidebar-item p-2">
+            <img src="assets/img/manage-icon.svg" class="mr-2" />
+            Manage Habits
+          </div>
+          <div class="sidebar-item p-2">
+            <img src="assets/img/settings-icon.svg" class="mr-2" />
+            App Settings
+          </div>
+          <div class="sidebar-item p-2">
+            <img src="assets/img/share-icon.svg" class="mr-2" />
+            Resources
+          </div>
+        </div>
+        <div class="main text-white justify-content-center">
+          <div class="pl-3 pr-2 topnav d-flex d-none">
+            <p class="my-0 heading">All Habits</p>
+            <div class="ml-auto">
+              <a class="search-btn mr-2" id="search-habit-btn">
+                <i class="fa fa-search"></i>
+                <input
+                  type="text"
+                  maxlength="50"
+                  oninput="searchHabits()"
+                  id="search-txt"
+                />
+              </a>
+              <a class="search-btn mr-2">
+                <img src="assets/img/calendar-icon.svg" class="mb-1" />
+              </a>
+              <a class="search-btn px-2 mr-2">
+                <i class="fa fa-arrow-up-short-wide"></i>
+              </a>
+              <!-- Add habit dropdown -->
+              <span class="dropdown">
+                <a
+                  class="add-habit-btn px-3"
+                  id="addHabitDropdown"
+                  data-toggle="dropdown"
+                >
+                  <i class="fa fa-add mr-1"></i>
+                  Add Habits
+                  <i class="fa fa-caret-down ml-1"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="addHabitDropdown">
+                  <a
+                    class="dropdown-item mt-1"
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#addHabitModal"
+                    onclick="onModalOpen()"
+                  >
+                    <i class="fa fa-infinity mr-1 text-center"></i>
+                    Create Good Habit</a
+                  >
+                  <a class="dropdown-item mb-line" href="#">
+                    <i class="fa fa-ban mr-1 text-center"></i>
+                    Break Bad Habit</a
+                  >
+                  <a class="dropdown-item my-1" href="#">
+                    <i class="fa fa-add mr-1 text-center"></i>
+                    Log mood</a
+                  >
+                </div>
+              </span>
+            </div>
+          </div>
+          <!-- Add habit modal -->
+          <div
+            class="modal fade"
+            id="addHabitModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="addHabitModalLabel"
+            aria-hidden="false"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                  <h5 class="modal-title heading" id="addHabitModalLabel">
+                    New Habit
+                  </h5>
+                </div>
+                <div class="modal-body py-0 d-flex flex-column">
+                  <div class="text-uppercase sidebar-section mb-1 mr-auto ml-2">
+                    Name
+                  </div>
+                  <input
+                    type="text"
+                    required
+                    id="habit-name"
+                    oninput="validate()"
+                  />
+                  <div
+                    class="text-uppercase sidebar-section mb-1 mr-auto ml-2 mt-2"
+                  >
+                    Goal
+                  </div>
+
+                  <div class="row m-0">
+                    <div class="col-4 p-0 pr-3">
+                      <input
+                        id="goal-number"
+                        class="w-100"
+                        type="number"
+                        min="1"
+                        max="100"
+                        step="1"
+                        value="1"
+                        oninput="validate()"
+                        required
+                      />
+                    </div>
+                    <div class="col-4 p-0 pr-3">
+                      <select class="w-100" id="goal-times">
+                        <option value="Times" selected>Times</option>
+                        <option value="Mins">Mins</option>
+                      </select>
+                    </div>
+                    <div class="col-4 p-0">
+                      <select class="w-100" id="goal-per">
+                        <option value="Per Day" selected>Per Day</option>
+                        <option value="Per Week">Per Week</option>
+                        <option value="Per Month">Per Month</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer border-top-0 mt-3">
+                  <a class="search-btn px-2 mr-2" data-dismiss="modal">
+                    <span class="mx-1">Cancel</span>
+                  </a>
+                  <a
+                    class="add-habit-btn px-2"
+                    id="save-btn"
+                    onclick="addHabit()"
+                  >
+                    <span class="mx-1">Save</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add habit content on empty body -->
+          <div
+            class="flex-column justify-content-center habits-section align-items-center text-center"
+          >
+            <img
+              src="assets/img/habits-section-image-1.svg"
+              class="mb-2 mt-1"
+            />
+            <img src="assets/img/habits-section-image-2.svg" class="mb-2" />
+            <img src="assets/img/habits-section-image-3.svg" class="mb-4" />
+            <p class="m-0">The Start of a Better You!</p>
+            <span class="mt-2 mb-3"
+              >Habits are like dominos. As one is formed, all others will
+              follow!</span
+            >
+            <a
+              class="search-btn px-2"
+              data-toggle="modal"
+              data-target="#addHabitModal"
+              onclick="onModalOpen()"
+            >
+              <i class="fa fa-add mr-1"></i>
+              Add Habits
+            </a>
+          </div>
+          <!-- Habits content -->
+          <ul class="p-0 habits-list" id="list-of-habits"></ul>
+          <!-- Edit habit modal -->
+          <div
+            class="modal fade"
+            id="editHabitModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="editHabitModalLabel"
+            aria-hidden="false"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                  <h5 class="modal-title heading" id="addHabitModalLabel">
+                    Edit Habit
+                  </h5>
+                </div>
+                <div class="modal-body py-0 d-flex flex-column">
+                  <div class="text-uppercase sidebar-section mb-1 mr-auto ml-2">
+                    Name
+                  </div>
+                  <input
+                    type="text"
+                    required
+                    id="edit-habit-name"
+                    oninput="validateForEdit()"
+                  />
+                  <div
+                    class="text-uppercase sidebar-section mb-1 mr-auto ml-2 mt-2"
+                  >
+                    Goal
+                  </div>
+
+                  <div class="row m-0">
+                    <div class="col-4 p-0 pr-3">
+                      <input
+                        id="edit-goal-number"
+                        class="w-100"
+                        type="number"
+                        min="1"
+                        max="100"
+                        step="1"
+                        value="1"
+                        oninput="validateForEdit()"
+                        required
+                      />
+                    </div>
+                    <div class="col-4 p-0 pr-3">
+                      <select class="w-100" id="edit-goal-times">
+                        <option value="Times" selected>Times</option>
+                        <option value="Mins">Mins</option>
+                      </select>
+                    </div>
+                    <div class="col-4 p-0">
+                      <select class="w-100" id="edit-goal-per">
+                        <option value="Per Day" selected>Per Day</option>
+                        <option value="Per Week">Per Week</option>
+                        <option value="Per Month">Per Month</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer border-top-0 mt-3">
+                  <a class="search-btn px-2 mr-auto" id="delete-habit-btn">
+                    <span class="mx-1 text-danger">Delete</span>
+                  </a>
+                  <a class="search-btn px-2 mr-2" data-dismiss="modal">
+                    <span class="mx-1">Cancel</span>
+                  </a>
+                  <a class="add-habit-btn px-2" id="edit-save-btn">
+                    <span class="mx-1">Save</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Dashboard script -->
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+:root {
+  --container-bg: #262626;
+  --body-bg: #171717;
+  --default-color: #3662cc;
+  --secondary-color: #424242;
+  --unfocused-item: #7b7c7c;
+  --filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(5285%)
+    hue-rotate(157deg) brightness(104%) contrast(112%);
+  --dropdown-color: #333333;
+  --hover-bg: #323232;
+  --dropdown-txt-color: #ffffffb3;
+  --habit-img-bg: #19262a;
+  --border: 0.1rem solid #444444;
+  --input-border: 0.1rem solid #454953;
+  --focused-input-border: 0.1rem solid var(--default-color);
+  --btn-font-size: 0.75rem;
+  --btn-icon-size: 0.875rem;
+  --border-radius: 0.25rem;
+  --sidebar-font-size: 0.813rem;
+  --sidebar-border-radius: 0.313rem;
+  --dropdown-icon-size: 0.78rem;
+}
+
+* {
+  font-family: Inter, san-sarif;
+}
+
+body {
+  overflow: hidden;
+}
+
+.container-fluid {
+  background: var(--container-bg);
+}
+
+.sidebar {
+  min-width: 13rem;
+  height: 100vh;
+  background: var(--body-bg);
+  border-right: var(--border);
+  overflow-y: auto;
+}
+
+.main {
+  background: var(--body-bg);
+  border-right: var(--border);
+  min-width: 37rem;
+  max-width: 82rem;
+  resize: horizontal;
+  overflow: auto;
+}
+
+.topnav {
+  border-bottom: var(--border);
+  background: var(--body-bg);
+  padding: 0.625rem;
+  position: sticky;
+}
+
+.heading {
+  font-size: 1.063rem;
+  font-weight: 600;
+}
+
+.add-habit-btn {
+  font-size: var(--btn-font-size);
+  background-color: var(--default-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  padding: 0.438rem;
+}
+
+.add-habit-btn i {
+  font-size: var(--btn-icon-size);
+}
+
+.search-btn {
+  font-size: var(--btn-font-size);
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  padding: 0.438rem 0.5rem;
+  padding-left: 0.625rem;
+}
+
+.search-btn i {
+  font-size: var(--btn-icon-size);
+}
+
+.sidebar-item {
+  color: var(--unfocused-item);
+  font-size: var(--sidebar-font-size);
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--sidebar-border-radius);
+}
+
+.sidebar-item:hover {
+  background: var(--hover-bg);
+}
+
+.sidebar-item:hover img {
+  filter: var(--filter);
+}
+
+.sidebar-section {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--unfocused-item);
+}
+
+.active {
+  background: var(--default-color);
+  color: white;
+}
+
+.active:hover {
+  background: var(--default-color);
+}
+
+.active img {
+  filter: var(--filter);
+}
+
+.sidebar-profile {
+  color: white;
+  background: var(--hover-bg);
+  border: var(--border);
+  margin-bottom: 0.75rem;
+}
+
+.sidebar-profile img {
+  border-radius: 100%;
+}
+
+.sidebar-profile:hover img {
+  filter: none;
+}
+
+.habits-section {
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+  display: flex;
+}
+
+.habits-section p {
+  font-size: 0.938rem;
+  font-weight: 600;
+}
+
+.habits-section span {
+  font-size: var(--sidebar-font-size);
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: var(--unfocused-item);
+  max-width: 19rem;
+}
+
+.dropdown-menu {
+  margin: 0.438rem 0.313rem;
+  width: 12.5rem;
+  padding: 0;
+  border: var(--border);
+  background-color: var(--dropdown-color);
+  border-radius: var(--sidebar-border-radius);
+}
+
+.dropdown-item {
+  padding: 0.438rem 0.625rem;
+  font-size: var(--btn-font-size);
+  font-weight: 400;
+  color: var(--dropdown-txt-color);
+}
+
+.dropdown-item:hover {
+  background: var(--default-color);
+  color: white;
+}
+
+.dropdown-item i {
+  color: white;
+  font-size: var(--dropdown-icon-size);
+  width: 1.25rem;
+}
+
+.mb-line {
+  border-bottom: var(--border);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--body-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: var(--border-radius);
+}
+
+.modal-content {
+  background: var(--dropdown-color);
+  color: white;
+}
+
+input,
+select {
+  outline: 0;
+  border-radius: var(--border-radius);
+  border: var(--input-border);
+  background: var(--secondary-color);
+  color: white;
+  font-size: var(--btn-font-size);
+  padding: 0.313rem;
+}
+
+.modal-footer a span {
+  color: white;
+}
+
+input:hover,
+select:hover,
+select:focus,
+input:focus {
+  border: var(--focused-input-border);
+}
+
+.habits-list {
+  height: 91vh;
+  overflow-y: scroll;
+}
+
+.habits-list li img {
+  background: var(--habit-img-bg);
+  border-radius: 100%;
+}
+
+.habits-list li:hover {
+  background: var(--container-bg);
+}
+
+.habit-details {
+  border-bottom: var(--border);
+}
+
+.habit-name {
+  font-size: var(--sidebar-font-size);
+  font-weight: 500;
+}
+
+.habit-goal {
+  font-size: var(--btn-font-size);
+  color: var(--unfocused-item);
+}
+
+.habit-menu .dropdown-menu {
+  margin-right: 0.813rem;
+  width: 6.25rem;
+}
+
+#search-habit-btn input {
+  background: transparent;
+  border: none;
+  width: 120px;
+}
+
+.failedHabit {
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+
+.skippedHabit {
+  text-decoration: line-through;
+  text-decoration-color: yellow;
+}
+
+.checkedHabit {
+  text-decoration: line-through;
+  text-decoration-color: green;
+}
+
+.failedHabitTitle {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 0.125rem;
+}
+
+.skippedHabitTitle {
+  text-decoration: line-through;
+  text-decoration-color: yellow;
+  text-decoration-thickness: 0.125rem;
+}
+
+.checkedHabitTitle {
+  text-decoration: line-through;
+  text-decoration-color: green;
+  text-decoration-thickness: 0.125rem;
+}
